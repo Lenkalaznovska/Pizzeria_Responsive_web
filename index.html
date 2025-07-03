@@ -26,7 +26,13 @@
         .torn-edge {
             clip-path: url(#torn-clip-final-jagged);
         }
-        /* Definice nové, dynamičtější animace */
+        /* Oprava zarovnání čtverečku */
+        .square-fix {
+            display: inline-block;
+            vertical-align: -0.2em;
+            font-size: 0.6em;
+        }
+        /* Definice dynamické animace */
         @keyframes dynamic-pulse {
           0% {
             transform: scale(1);
@@ -90,13 +96,19 @@
                              <span class="text-sm font-semibold">{{ ratings.google }}</span>
                         </div>
                     </div>
+                    
                     <div class="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 py-4">
-                        <h1 class="text-5xl md:text-6xl font-black uppercase tracking-wide">{{ title }}</h1>
-                        <h2 class="text-5xl md:text-6xl font-black uppercase tracking-wide">{{ slogan }}</h2>
+                        <h1 class="text-5xl md:text-6xl font-black uppercase tracking-wide">
+                            <span>{{ title }}</span><span class="square-fix">▪</span>
+                        </h1>
+                        <h2 class="text-5xl md:text-6xl font-black uppercase tracking-wide">
+                            <span>{{ slogan }}</span><span class="square-fix">▪</span>
+                        </h2>
                     </div>
+
                     <p class="text-lg md:text-xl font-normal">{{ description }}</p>
                     
-                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                    <div class="flex flex-col sm:flex-row items-center gap-6 pt-4">
                         <a :href="'tel:' + phone.replace(/\s/g, '')" class="animate-dynamic-pulse bg-red-600 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
                             <span>{{ phone }}</span>
@@ -152,8 +164,8 @@
                         foodora: '1 700+ Hodnocení',
                         google: '4.0 Hodnocení'
                     },
-                    title: 'Pizzerie San Marino v Kladně.',
-                    slogan: 'Vždy čerstvá, vždy z lásky.',
+                    title: 'Pizzerie San Marino v Kladně',
+                    slogan: 'Vždy čerstvá, vždy z lásky',
                     description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny',
                     phone: '+420 604 633 373',
                     orderText: 'Objednat online'

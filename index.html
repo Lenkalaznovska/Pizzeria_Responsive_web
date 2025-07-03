@@ -19,29 +19,28 @@
             background-color: #f3f4f6;
         }
         .header-bg {
-            /* Váš původní obrázek pizzy */
             background-image: url('Images/pizza.webp'); 
             background-size: cover;
             background-position: center; 
         }
-        /* Finální, extra jemný efekt utrženého papíru */
+        /* Finální, nejrealističtější efekt utrženého papíru */
         .torn-edge {
-            clip-path: url(#torn-clip-subtle);
+            clip-path: url(#torn-clip-final);
         }
     </style>
 </head>
 <body>
     <svg class="absolute w-0 h-0">
       <defs>
-        <clipPath id="torn-clip-subtle" clipPathUnits="objectBoundingBox">
-          <path d="M 0,0 L 1,0 L 1,0.98 C 0.95,0.99 0.92,0.97 0.88,0.98 C 0.84,0.99 0.8,0.97 0.77,0.98 C 0.73,0.99 0.7,0.97 0.66,0.98 C 0.63,0.99 0.6,0.97 0.57,0.98 C 0.54,0.99 0.5,0.97 0.47,0.98 C 0.44,0.99 0.4,0.97 0.37,0.98 C 0.34,0.99 0.3,0.97 0.27,0.98 C 0.24,0.99 0.2,0.97 0.17,0.98 C 0.14,0.99 0.1,0.97 0.07,0.98 C 0.03,0.99 0,0.97 0,0.98 V 0 Z"></path>
+        <clipPath id="torn-clip-final" clipPathUnits="objectBoundingBox">
+          <path d="M 0,0 L 1,0 L 1,0.95 L 0.95,0.9 L 0.92,0.98 L 0.88,0.91 L 0.84,1 L 0.8,0.93 L 0.77,0.99 L 0.73,0.92 L 0.7,1 L 0.66,0.9 L 0.63,1 L 0.6,0.92 L 0.57,0.98 L 0.54,0.9 L 0.5,0.97 L 0.47,0.91 L 0.44,1 L 0.4,0.93 L 0.37,0.99 L 0.34,0.9 L 0.3,0.95 L 0.27,0.92 L 0.24,1 L 0.2,0.94 L 0.17,1 L 0.14,0.91 L 0.1,0.97 L 0.07,0.92 L 0.03,1 L 0,0.95 z"></path>
         </clipPath>
       </defs>
     </svg>
 
-    <div id="app">
+    <div id="app" class="relative">
         
-        <div class="header-bg relative w-full torn-edge pb-20">
+        <header class="header-bg relative w-full min-h-screen torn-edge">
             <nav class="absolute top-6 left-0 w-full z-20">
                 <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
                     <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20"></a>
@@ -62,10 +61,9 @@
 
             <div class="absolute inset-0 bg-[#017d4d] opacity-90"></div>
             
-            <main class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-white">
+            <main class="relative z-10 flex flex-col items-center justify-center min-h-screen text-white">
 
                 <div class="flex flex-col items-center text-center gap-y-8">
-
                     <div class="bg-white/50 rounded-full flex items-center gap-x-6 px-6 py-3 text-gray-800">
                         <div class="flex items-center gap-x-2">
                             <span class="font-bold text-sm" style="color: #D70085;">foodora</span>
@@ -90,10 +88,10 @@
                     </div>
                 </div>
             </main>
-        </div>
 
-        <section class="relative z-10 -mt-24 w-full flex justify-center">
-            <div class="bg-white text-gray-800 rounded-2xl shadow-2xl px-10 py-5 flex items-start justify-center gap-x-16 max-w-6xl">
+             <div class="absolute bg-white text-gray-800 shadow-2xl flex items-center justify-center gap-x-16" 
+                 style="width: 1056px; height: 120px; top: 639px; left: 192px; border-radius: 5.4px;">
+                
                 <div class="flex items-center gap-x-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
                     <div class="flex flex-col text-left">
@@ -101,6 +99,7 @@
                         <span class="text-gray-500 text-base">11:00 - 21:15 <a href="#" class="text-red-600 underline font-semibold">Ceník</a></span>
                     </div>
                 </div>
+                
                 <div class="flex items-center gap-x-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     <div class="flex flex-col text-left">
@@ -108,6 +107,7 @@
                         <span class="text-gray-500 text-base">10:45 - 21:15</span>
                     </div>
                 </div>
+                
                 <div class="flex items-center gap-x-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     <div class="flex flex-col text-left">
@@ -115,8 +115,9 @@
                         <span class="text-gray-500 text-base"><a href="#" class="text-red-600 underline font-semibold">Rezervovat místo</a></span>
                     </div>
                 </div>
+
             </div>
-        </section>
+        </header>
     </div>
 
     <script>

@@ -1,3 +1,15 @@
+Jasně, rozumím. Provedl jsem obě úpravy: zvětšil jsem logo v horní navigaci a přidal novou informační lištu na spodní hranu hlavičky tak, aby z ní napůl vyčnívala.
+
+Provedené změny:
+Větší logo: Logo v horní navigaci je nyní výrazně větší (h-20), aby vizuálně odpovídalo velikosti tlačítek.
+
+Přidána spodní lišta: Pod hlavní obsah jsem přidal novou bílou lištu s informacemi o rozvozu, otevírací době a rezervaci, přesně podle vašeho obrázku.
+
+Umístění lišty: Lišta je umístěna na spodní hraně hlavičky tak, že její polovina je přes hlavičku a druhá polovina "vyčnívá" ven.
+
+Finální kód
+HTML
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -20,7 +32,7 @@
         .header-bg {
             background-image: url('Images/pizza.webp');
             background-size: cover;
-            background-position: center -350px; 
+            background-position: center -150px; 
         }
         /* CSS oprava pro zarovnání čtverečku */
         .square-fix {
@@ -35,9 +47,9 @@
     <div id="app" class="relative">
         
         <nav class="absolute top-6 left-0 w-full z-20">
-            <div class="container mx-auto px-20 py-3 flex justify-between items-center">
+            <div class="container mx-auto px-20 py-2 flex justify-between items-center">
                 <a href="#">
-                    <img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-16">
+                    <img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20">
                 </a>
                 
                 <div class="flex items-center">
@@ -66,12 +78,12 @@
             </div>
         </nav>
 
-        <header class="header-bg relative w-full">
+        <header class="header-bg relative w-full min-h-screen">
             <div class="absolute inset-0 bg-[#017d4d] opacity-90"></div>
             
-            <main class="relative z-10 min-h-screen flex flex-col items-center p-4 text-white">
+            <main class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 text-white">
 
-                <div class="flex flex-col items-center text-center gap-y-8 pt-48">
+                <div class="flex flex-col items-center text-center gap-y-12">
 
                     <div class="bg-white/50 rounded-full flex items-center gap-x-6 px-6 py-3 text-gray-800">
                         <div class="flex items-center gap-x-2">
@@ -89,7 +101,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-y-4 py-4 max-w-6xl">
+                    <div class="flex flex-col gap-y-2 py-4">
                         <h1 class="text-5xl md:text-6xl font-black uppercase tracking-wide">
                             <span>{{ title }}</span><span class="square-fix">▪</span>
                         </h1>
@@ -121,6 +133,43 @@
 
                 </div>
             </main>
+
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-auto">
+                <div class="bg-white text-gray-800 rounded-2xl shadow-2xl px-10 py-5 flex items-start justify-center gap-x-16">
+                    
+                    <div class="flex items-center gap-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        <div class="flex flex-col text-left">
+                            <span class="font-black uppercase text-lg tracking-wider">Rozvoz Jídla</span>
+                            <span class="text-gray-500 text-base">11:00 - 21:15 <a href="#" class="text-red-600 underline font-semibold">Ceník</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="flex flex-col text-left">
+                            <span class="font-black uppercase text-lg tracking-wider">Otevírací doba</span>
+                            <span class="text-gray-500 text-base">10:45 - 21:15</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <div class="flex flex-col text-left">
+                            <span class="font-black uppercase text-lg tracking-wider">Rezervace</span>
+                            <span class="text-gray-500 text-base"><a href="#" class="text-red-600 underline font-semibold">Rezervovat místo</a></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </header>
     </div>
 

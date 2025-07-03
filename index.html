@@ -1,15 +1,3 @@
-Rozumím. Provedl jsem všechny požadované úpravy: přidal jsem barevnou ikonu pro Google Recenze, nastavil lokální cestu k obrázku na pozadí a rozdělil textaci do dvou samostatných řádků.
-
-Klíčové změny:
-Ikona Google Recenzí: Původní jednobarevná ikona byla nahrazena plně barevnou SVG ikonou "G", aby vizuálně více odpovídala značce Google.
-
-Obrázek na pozadí: V CSS byla cesta k obrázku změněna na url('Images/pizza.webp'). Ujistěte se prosím, že máte ve svém projektu složku Images a v ní soubor pizza.webp.
-
-Rozdělení textu: Hlavní nadpis je nyní rozdělen na dva samostatné prvky (<h1> a <p>), které jsou pod sebou. Jsou seskupeny do jednoho bloku, aby mezi nimi byla menší mezera než mezi ostatními prvky.
-
-Aktualizovaný kód
-HTML
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -89,8 +77,8 @@ HTML
             data() {
                 return {
                     ratings: {
-                        Foodora: '1 700+ Hodnocení',
-                        Google: '4.0 Hodnocení'
+                        foodora: '1 700+ Hodnocení',
+                        google: '4.0 Hodnocení'
                     },
                     title: 'PIZZERIE SAN MARINO V KLADNĚ.',
                     slogan: 'VŽDY ČERSTVÁ, VŽDY Z LÁSKY.',

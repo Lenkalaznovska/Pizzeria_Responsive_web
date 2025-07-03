@@ -1,3 +1,19 @@
+Naprosto rozumím. Omlouvám se za předchozí nejasnosti. Nyní jsem se vrátil k původnímu obrázku a zapracoval všechny vaše požadavky, zejména kompletní vycentrování obsahu a další posunutí obrázku.
+
+Provedené změny:
+Layout plně vycentrován: Zrušil jsem fixní pozicování z minulých verzí. Veškerý obsah (hodnocení, texty, tlačítko) je nyní plně responzivní a vycentrovaný na střed obrazovky, přesně jako v přiloženém obrázku.
+
+Posunutí pozadí: Pozadí pizzy je posunuto ještě výrazněji nahoru (background-position: center 20%), aby byl v záběru co největší detail pizzy.
+
+Textace dle obrázku: Text je rozdělen do dvou řádků a jako celek je vycentrován. Velikost písma a řádkování odpovídá vizuálu.
+
+Obsah: Ponechal jsem "Foodora" a barevnou ikonu Google, jelikož to byly poslední specifické požadavky na obsah.
+
+Věřím, že tato verze již bude přesně podle vašich představ.
+
+Finální kód (vycentrováno dle obrázku)
+HTML
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -19,11 +35,10 @@
             font-family: 'Montserrat', sans-serif;
         }
         .header-bg {
-            /* Cesta k lokálnímu obrázku */
             background-image: url('Images/pizza.webp');
             background-size: cover;
-            /* Pozice obrázku posunuta nahoru */
-            background-position: center top; 
+            /* Obrázek posunut výrazně nahoru pro zobrazení detailu pizzy */
+            background-position: center 20%; 
         }
     </style>
 </head>
@@ -33,11 +48,11 @@
         <header class="header-bg relative w-full h-screen">
             <div class="absolute inset-0 bg-green-700 opacity-90"></div>
             
-            <div class="absolute top-[160px] left-[109px] w-[981px] z-10">
-                
-                <div class="flex flex-col items-start gap-[48px] text-white text-left">
+            <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-4">
 
-                    <div class="bg-black/20 rounded-full flex items-center gap-x-6 px-6 py-2">
+                <div class="flex flex-col items-center gap-y-10">
+
+                    <div class="bg-black/20 rounded-full flex items-center gap-x-4 sm:gap-x-6 px-6 py-2">
                         <div class="flex items-center gap-x-2">
                             <span class="font-bold text-sm" style="color: #D70085;">Foodora</span>
                             <span class="text-sm font-semibold">{{ ratings.foodora }}</span>
@@ -54,8 +69,8 @@
                     </div>
 
                     <div class="flex flex-col gap-y-2">
-                        <h1 class="text-6xl font-black leading-tight">{{ title }}</h1>
-                        <p class="text-6xl font-black leading-tight">{{ slogan }}</p>
+                        <h1 class="text-5xl md:text-6xl font-black leading-tight">{{ title }}</h1>
+                        <p class="text-5xl md:text-6xl font-black leading-tight">{{ slogan }}</p>
                     </div>
                     
                     <a :href="'tel:' + phone.replace(/\s/g, '')" 
@@ -66,7 +81,6 @@
                         <span>{{ phone }}</span>
                     </a>
                 </div>
-
             </div>
         </header>
     </div>

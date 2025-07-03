@@ -25,10 +25,13 @@
         }
         /* CSS oprava pro zarovnání čtverečku */
         .square-fix {
-            position: relative;
-            top: 0.15em; 
-            font-size: 0.6em;
             display: inline-block;
+            /* Precizní vertikální zarovnání, které znak posune dolů */
+            vertical-align: -0.2em;
+            /* Zmenšení znaku */
+            font-size: 0.6em;
+            /* Malá mezera pro přirozené napojení na text */
+            margin-left: 0.15em;
         }
     </style>
 </head>
@@ -60,10 +63,10 @@
 
                     <div class="flex flex-col gap-y-2">
                         <h1 class="text-5xl md:text-6xl font-black leading-tight">
-                            {{ title }}<span class="square-fix">▪</span>
+                            <span>{{ title }}</span><span class="square-fix">▪</span>
                         </h1>
                         <p class="text-5xl md:text-6xl font-black leading-tight">
-                            {{ slogan }}<span class="square-fix">▪</span>
+                            <span>{{ slogan }}</span><span class="square-fix">▪</span>
                         </p>
                     </div>
                     
@@ -89,6 +92,7 @@
                         foodora: '1 700+ Hodnocení',
                         google: '4.0 Hodnocení'
                     },
+                    // Z textu byl odebrán znak, nyní se vkládá v HTML
                     title: 'PIZZERIE SAN MARINO V KLADNĚ',
                     slogan: 'VŽDY ČERSTVÁ, VŽDY Z LÁSKY',
                     phone: '+420 604 633 373'

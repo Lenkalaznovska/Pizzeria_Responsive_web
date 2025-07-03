@@ -32,23 +32,23 @@
             vertical-align: -0.2em;
             font-size: 0.6em;
         }
-        /* Finální dynamická animace se září */
-        @keyframes dynamic-glow-pulse {
+        /* Finální, dynamická animace se září */
+        @keyframes lure-pulse {
           0% {
             transform: scale(1);
             box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
           }
           70% {
-            transform: scale(1.05);
-            box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            transform: scale(1.08);
+            box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
           }
           100% {
             transform: scale(1);
             box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
           }
         }
-        .animate-glow-pulse {
-            animation: dynamic-glow-pulse 2s infinite;
+        .animate-lure-pulse {
+            animation: lure-pulse 1.8s infinite;
         }
     </style>
 </head>
@@ -109,11 +109,11 @@
                     <p class="text-lg md:text-xl font-normal">{{ description }}</p>
                     
                     <div class="flex flex-col sm:flex-row items-center gap-10 pt-4">
-                        <a :href="'tel:' + phone.replace(/\s/g, '')" class="animate-glow-pulse bg-red-600 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center">
+                        <a :href="'tel:' + phone.replace(/\s/g, '')" class="animate-lure-pulse bg-red-600 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
                             <span>{{ phone }}</span>
                         </a>
-                        <a href="#" class="animate-glow-pulse border-2 border-white text-white font-bold text-lg rounded-full px-8 py-4 w-full sm:w-auto justify-center">
+                        <a href="#" class="animate-lure-pulse border-2 border-white text-white font-bold text-lg rounded-full px-8 py-4 w-full sm:w-auto justify-center">
                             <span>{{ orderText }}</span>
                         </a>
                     </div>

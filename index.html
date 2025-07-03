@@ -59,7 +59,7 @@
                 </div>
             </nav>
 
-            <div class="absolute inset-0 bg-gradient-to-b from-[#017d4d] to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[#017d4d] via-[#017d4d]/80 to-[#017d4d]/40"></div>
             
             <main class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-white">
 
@@ -91,7 +91,7 @@
             </main>
         </div>
 
-        <section class="relative z-10 -mt-32 w-full flex justify-center">
+        <section class="relative z-10 -mt-28 w-full flex justify-center">
             <div class="bg-white text-gray-800 rounded-2xl shadow-2xl px-10 py-5 flex items-start justify-center gap-x-16 max-w-6xl">
                 <div class="flex items-center gap-x-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
@@ -112,6 +112,7 @@
                     <div class="flex flex-col text-left">
                         <span class="font-black uppercase text-lg tracking-wider">Rezervace</span>
                         <span class="text-gray-500 text-base"><a href="#" class="text-red-600 underline font-semibold">Rezervovat místo</a></span>
+                        <span class="text-gray-500 text-base"><a :href="'tel:' + phone.replace(/\s/g, '')" class="hover:underline">{{ phone }}</a></span>
                     </div>
                 </div>
             </div>

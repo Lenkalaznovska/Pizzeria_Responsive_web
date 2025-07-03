@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzakladno.cz</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header class="bg-red-600 text-white py-4 px-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Pizzakladno.cz</h1>
+      <nav class="space-x-4 hidden md:block">
+        <a href="#menu" class="hover:underline">Menu</a>
+        <a href="#o-nas" class="hover:underline">O nás</a>
+        <a href="#kontakt" class="hover:underline">Kontakt</a>
+      </nav>
+      <a href="#objednat" class="bg-white text-red-600 font-semibold px-4 py-2 rounded hover:bg-gray-100 transition md:block hidden">Objednat</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center h-[90vh] flex items-center justify-center" style="background-image: url('https://via.placeholder.com/1600x900?text=Pizza+Hero');">
+      <div class="bg-black bg-opacity-50 p-8 rounded text-center text-white max-w-xl">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Pizza z Kladna, co má grády!</h2>
+        <p class="text-lg mb-6">Nejlepší pizza ve městě. Rychlé doručení, poctivé suroviny, skvělá chuť!</p>
+        <a href="#objednat" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-semibold transition">Objednat hned</a>
+      </div>
+    </section>
+
+    <!-- Sekce: O nás -->
+    <section id="o-nas" class="py-16 px-6 bg-gray-100 text-center">
+      <h3 class="text-3xl font-bold mb-6">O nás</h3>
+      <p class="max-w-3xl mx-auto text-lg">Jsme pizzerie z Kladna s vášní pro italskou kuchyni. Každou pizzu připravujeme z čerstvých surovin a s láskou. Přesvědčte se sami!</p>
+    </section>
+
+    <!-- CTA -->
+    <section id="objednat" class="py-16 px-6 bg-red-600 text-white text-center">
+      <h3 class="text-3xl font-bold mb-4">Máte chuť?</h3>
+      <p class="text-lg mb-6">Klikněte na tlačítko níže a objednejte si svoji oblíbenou pizzu během minuty.</p>
+      <a href="#" class="bg-white text-red-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">Přejít na objednávku</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontakt" class="bg-gray-900 text-white py-8 px-6 text-center">
+      <p class="text-sm">&copy; 2025 Pizzakladno.cz – Všechna práva vyhrazena.</p>
+      <p class="text-sm mt-2">Kladno, Česká republika | info@pizzakladno.cz</p>
+    </footer>
+  </body>
+</html>

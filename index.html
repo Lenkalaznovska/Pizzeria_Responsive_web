@@ -21,8 +21,17 @@
         .header-bg {
             background-image: url('Images/pizza.webp');
             background-size: cover;
-            /* Maximální posunutí obrázku nahoru */
             background-position: center -350px; 
+        }
+        /* CSS oprava pro zarovnání čtverečku */
+        .square-fix {
+            position: relative;
+            /* Posune čtvereček dolů, aby seděl na lince. Hodnota 'em' se přizpůsobí velikosti písma. */
+            top: 0.15em; 
+            /* Zároveň ho můžeme ještě trochu zmenšit */
+            font-size: 0.6em;
+            /* Zamezení zalomení řádku před čtverečkem */
+            display: inline-block;
         }
     </style>
 </head>
@@ -53,8 +62,12 @@
                     </div>
 
                     <div class="flex flex-col gap-y-2">
-                        <h1 class="text-5xl md:text-6xl font-black leading-tight">{{ title }}</h1>
-                        <p class="text-5xl md:text-6xl font-black leading-tight">{{ slogan }}</p>
+                        <h1 class="text-5xl md:text-6xl font-black leading-tight">
+                            {{ title }}<span class="square-fix">▪</span>
+                        </h1>
+                        <p class="text-5xl md:text-6xl font-black leading-tight">
+                            {{ slogan }}<span class="square-fix">▪</span>
+                        </p>
                     </div>
                     
                     <a :href="'tel:' + phone.replace(/\s/g, '')" 
@@ -79,9 +92,9 @@
                         foodora: '1 700+ Hodnocení',
                         google: '4.0 Hodnocení'
                     },
-                    // Použit menší znak čtverečku
-                    title: 'PIZZERIE SAN MARINO V KLADNĚ▪',
-                    slogan: 'VŽDY ČERSTVÁ, VŽDY Z LÁSKY▪',
+                    // Z textu byl odebrán znak, nyní se vkládá v HTML
+                    title: 'PIZZERIE SAN MARINO V KLADNĚ',
+                    slogan: 'VŽDY ČERSTVÁ, VŽDY Z LÁSKY',
                     phone: '+420 604 633 373'
                 }
             }

@@ -19,7 +19,7 @@
         }
         .header-bg {
             background-image: url('Images/pizza.webp');
-            background-size: cover;
+            background-size: cover; /* Odpovídá "texture size 100" a "crop" */
             background-position: center -150px; 
         }
         /* CSS oprava pro zarovnání čtverečku */
@@ -66,10 +66,11 @@
             </div>
         </nav>
 
-        <header class="header-bg relative w-full min-h-screen">
+        <header class="header-bg absolute overflow-hidden" 
+                style="width: 1473px; height: 719px; top: -15px; left: -17px; border-radius: 20px;">
             <div class="absolute inset-0 bg-[#017d4d] opacity-90"></div>
             
-            <main class="relative z-10 flex flex-col items-center justify-center p-4 text-white">
+            <main class="relative z-10 h-full flex flex-col items-center justify-center p-4 text-white">
 
                 <div class="flex flex-col items-center text-center gap-y-12">
 
@@ -118,7 +119,6 @@
                             <span>{{ orderText }}</span>
                         </a>
                     </div>
-
                 </div>
             </main>
 

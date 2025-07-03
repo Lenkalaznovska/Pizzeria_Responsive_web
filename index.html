@@ -21,17 +21,14 @@
         .header-bg {
             background-image: url('Images/pizza.webp');
             background-size: cover;
-            background-position: center -150px; 
+            background-position: center -350px; 
         }
         /* CSS oprava pro zarovnání čtverečku */
         .square-fix {
             display: inline-block;
-            /* Precizní vertikální zarovnání, které znak posune dolů */
             vertical-align: -0.2em;
-            /* Zmenšení znaku */
             font-size: 0.6em;
-            /* Malá mezera pro přirozené napojení na text */
-            margin-left: 0.15em;
+            margin-left: 0.1em;
         }
     </style>
 </head>
@@ -41,11 +38,11 @@
         <header class="header-bg relative w-full h-screen">
             <div class="absolute inset-0 bg-green-700 opacity-90"></div>
             
-            <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-4 text-white">
+            <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-4">
 
                 <div class="flex flex-col items-center gap-y-10">
 
-                    <div class="bg-black/30 rounded-full flex items-center gap-x-4 sm:gap-x-6 px-6 py-2">
+                    <div class="bg-white/20 rounded-full flex items-center gap-x-4 sm:gap-x-6 px-6 py-2 text-gray-800">
                         <div class="flex items-center gap-x-2">
                             <span class="font-bold text-sm" style="color: #D70085;">Foodora</span>
                             <span class="text-sm font-semibold">{{ ratings.foodora }}</span>
@@ -61,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-y-2">
+                    <div class="flex flex-col gap-y-2 text-white">
                         <h1 class="text-5xl md:text-6xl font-black leading-tight">
                             <span>{{ title }}</span><span class="square-fix">▪</span>
                         </h1>

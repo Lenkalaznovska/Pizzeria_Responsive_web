@@ -22,29 +22,12 @@
       background-position: center;
       position: relative;
     }
-
-    .torn-bottom {
-      position: relative;
-    }
-
-    .torn-bottom::after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background-repeat: repeat-x;
-      background-size: 1000px 60px;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M0 0 C 50 60, 150 0, 200 60 S 350 0, 400 60 S 550 0, 600 60 S 750 0, 800 60 S 950 0, 1000 60 L1000 0 Z'/%3E%3C/svg%3E");
-      z-index: 5;
-    }
   </style>
 </head>
 <body>
   <div id="app">
-    <div class="header-bg torn-bottom pb-16">
+    <div class="header-bg relative w-full pb-16">
+      <!-- Navigace -->
       <nav class="absolute top-6 left-0 w-full z-20">
         <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
           <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20" /></a>
@@ -63,8 +46,17 @@
         </div>
       </nav>
 
-      <div class="absolute inset-0 bg-[#017d4d] opacity-90"></div>
+      <!-- Zelený překryv + efekt utrženého papíru -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-[#017d4d] opacity-90"></div>
+        <div class="absolute bottom-0 left-0 w-full">
+          <svg viewBox="0 0 1000 80" preserveAspectRatio="none" class="w-full h-12">
+            <path d="M0,0 C50,80 150,0 250,80 S450,0 550,80 S750,0 850,80 S950,0 1000,80 L1000,0 L0,0 Z" fill="white"/>
+          </svg>
+        </div>
+      </div>
 
+      <!-- Obsah hlavičky -->
       <main class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-white">
         <div class="flex flex-col items-center text-center gap-y-8">
           <div class="bg-white/50 rounded-full flex items-center gap-x-6 px-6 py-3 text-gray-800">
@@ -101,7 +93,7 @@
       </main>
     </div>
 
-    <!-- SPODNÍ NAVIGACE -->
+    <!-- Spodní sekce s ikonami -->
     <section class="relative z-10 -mt-28 w-full flex justify-center">
       <div class="bg-white text-gray-800 rounded-2xl shadow-2xl px-10 py-5 flex items-start justify-center gap-x-16 max-w-6xl">
         <div class="flex items-center gap-x-4">
@@ -129,6 +121,7 @@
     </section>
   </div>
 
+  <!-- Vue -->
   <script>
     const { createApp } = Vue;
     createApp({

@@ -22,6 +22,24 @@
       background-position: center;
       position: relative;
     }
+
+    .torn-effect {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .torn-effect::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: white;
+      mask-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'><path fill='black' d='M0,0 C150,100 350,0 600,100 C850,200 1050,0 1200,100 L1200,0 L0,0 Z'/></svg>");
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+    }
   </style>
 </head>
 <body>
@@ -46,14 +64,9 @@
         </div>
       </nav>
 
-      <!-- Zelený překryv + efekt utrženého papíru -->
-      <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-[#017d4d] opacity-90"></div>
-        <div class="absolute bottom-0 left-0 w-full">
-          <svg viewBox="0 0 1000 80" preserveAspectRatio="none" class="w-full h-12">
-            <path d="M0,0 C50,80 150,0 250,80 S450,0 550,80 S750,0 850,80 S950,0 1000,80 L1000,0 L0,0 Z" fill="white"/>
-          </svg>
-        </div>
+      <!-- Zelený překryv s efektem utrženého papíru -->
+      <div class="absolute inset-0 torn-effect z-0">
+        <div class="w-full h-full bg-[#017d4d] opacity-90"></div>
       </div>
 
       <!-- Obsah hlavičky -->
@@ -92,33 +105,6 @@
         </div>
       </main>
     </div>
-
-    <!-- Spodní sekce s ikonami -->
-    <section class="relative z-10 -mt-28 w-full flex justify-center">
-      <div class="bg-white text-gray-800 rounded-2xl shadow-2xl px-10 py-5 flex items-start justify-center gap-x-16 max-w-6xl">
-        <div class="flex items-center gap-x-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
-          <div class="flex flex-col text-left">
-            <span class="font-black uppercase text-lg tracking-wider">Rozvoz Jídla</span>
-            <span class="text-gray-500 text-base">11:00 - 21:15 <a href="#" class="text-red-600 underline font-semibold">Ceník</a></span>
-          </div>
-        </div>
-        <div class="flex items-center gap-x-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          <div class="flex flex-col text-left">
-            <span class="font-black uppercase text-lg tracking-wider">Otevírací doba</span>
-            <span class="text-gray-500 text-base">10:45 - 21:15</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-x-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-          <div class="flex flex-col text-left">
-            <span class="font-black uppercase text-lg tracking-wider">Rezervace</span>
-            <span class="text-gray-500 text-base"><a href="#" class="text-red-600 underline font-semibold">Rezervovat místo</a></span>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 
   <!-- Vue -->

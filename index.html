@@ -1,3 +1,10 @@
+Dobře, rozumím. Posunul jsem celý blok s obsahem (hodnocení, nadpisy, atd.) níže na stránce, aby bylo hodnocení dál od navigace a opticky více "nad" nadpisy v rámci kompozice stránky.
+
+Abych toho dosáhl, zrušil jsem vertikální centrování na střed a místo toho jsem přidal velké horní odsazení.
+
+Opravený kód
+HTML
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -20,7 +27,7 @@
         .header-bg {
             background-image: url('Images/pizza.webp');
             background-size: cover;
-            background-position: center -400px; 
+            background-position: center -150px; 
         }
         /* CSS oprava pro zarovnání čtverečku */
         .square-fix {
@@ -66,9 +73,9 @@
         <header class="header-bg relative w-full">
             <div class="absolute inset-0 bg-[#017d4d] opacity-90"></div>
             
-            <main class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 text-white">
+            <main class="relative z-10 min-h-screen flex flex-col items-center p-4 text-white">
 
-                <div class="flex flex-col items-center text-center gap-y-10">
+                <div class="flex flex-col items-center text-center gap-y-10 pt-48">
 
                     <div class="bg-white/50 rounded-full flex items-center gap-x-6 px-6 py-3 text-gray-800">
                         <div class="flex items-center gap-x-2">

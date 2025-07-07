@@ -23,9 +23,6 @@
             background-size: cover;
             background-position: center;
         }
-        .torn-edge {
-            clip-path: url(#torn-clip-final-jagged);
-        }
         .square-fix {
             display: inline-block;
             vertical-align: -0.2em;
@@ -56,17 +53,10 @@
     </style>
 </head>
 <body>
-    <svg class="absolute w-0 h-0">
-        <defs>
-            <clipPath id="torn-clip-final-jagged" clipPathUnits="objectBoundingBox">
-                <path d="M 0,0 L 1,0 L 1,0.98 C 0.98,0.97 0.96,0.985 0.94,0.975 C 0.92,0.965 0.9,0.98 0.88,0.97 C 0.86,0.96 0.84,0.975 0.82,0.965 C 0.8,0.955 0.78,0.97 0.76,0.96 C 0.74,0.95 0.72,0.965 0.7,0.955 C 0.68,0.945 0.66,0.96 0.64,0.95 C 0.62,0.94 0.6,0.955 0.58,0.945 C 0.56,0.935 0.54,0.95 0.52,0.94 C 0.5,0.93 0.48,0.945 0.46,0.935 C 0.44,0.925 0.42,0.94 0.4,0.93 C 0.38,0.92 0.36,0.935 0.34,0.925 C 0.32,0.915 0.3,0.93 0.28,0.92 C 0.26,0.91 0.24,0.925 0.22,0.915 C 0.2,0.905 0.18,0.92 0.16,0.91 C 0.14,0.9 0.12,0.915 0.1,0.905 C 0.08,0.895 0.06,0.91 0.04,0.9 C 0.02,0.89 0,0.905 0,0.9 V 0 Z"></path>
-            </clipPath>
-        </defs>
-    </svg>
-
+    
     <div id="app" class="relative">
         
-        <div class="header-bg relative w-full torn-edge pb-16">
+        <div class="header-bg relative w-full pb-16">
             <nav class="absolute top-6 left-0 w-full z-20">
                 <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
                     <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20"></a>
@@ -125,7 +115,7 @@
             </main>
         </div>
 
-        <section class="relative z-10 -mt-28 w-full flex justify-center">
+        <section class="relative z-10 -mt-20 w-full flex justify-center">
             <div class="bg-white text-gray-800 rounded-2xl shadow-xl px-10 py-5 flex items-start justify-center gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1">
                 
                 <div class="flex items-center gap-x-4">
@@ -156,13 +146,13 @@
 
                 <div class="flex items-center gap-x-4">
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" />
-                        <path d="M16 3v4" />
-                        <path d="M8 3v4" />
-                        <path d="M4 11h16" />
-                        <path d="M15 19l2 2l4 -4" />
-                     </svg>
+                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                         <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" />
+                         <path d="M16 3v4" />
+                         <path d="M8 3v4" />
+                         <path d="M4 11h16" />
+                         <path d="M15 19l2 2l4 -4" />
+                      </svg>
                     <div class="flex flex-col text-left">
                         <span class="font-black uppercase text-lg tracking-wider">Rezervace</span>
                         <a :href="'tel:' + phone.replace(/\s/g, '')" class="text-red-600 underline font-semibold text-base">Rezervovat místo</a>
@@ -276,7 +266,7 @@
             </div>
         </section>
         
-        <section class="py-20" style="background-image: url('Images/pozadi1.jpg'); background-size: cover; background-position: center;">
+        <section class="py-32" style="background-image: url('Images/pozadi1.jpg'); background-size: cover; background-position: center;">
             <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
                 <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
 
@@ -347,7 +337,7 @@
                             'Images/pizza.webp',
                             'Images/pizza1.jpg',
                             'Images/pizza2.jpg',
-                            'Images/detskemenu.jpg',
+                            'Images/detskemenu.jpg'
                             'Images/pizza3.jpg'
                         ]
                     },

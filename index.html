@@ -23,6 +23,10 @@
             background-size: cover;
             background-position: center;
         }
+        /* Aplikace nového "potrhaného" ořezu */
+        .torn-edge {
+            clip-path: url(#torn-clip);
+        }
         /* Oprava zarovnání čtverečku */
         .square-fix {
             display: inline-block;
@@ -51,9 +55,17 @@
 </head>
 <body>
 
+    <svg class="absolute w-0 h-0">
+        <defs>
+            <clipPath id="torn-clip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0 L 1,0 L 1,0.95 L 0.95,0.93 L 0.92,0.96 L 0.88,0.94 L 0.85,0.97 L 0.8,0.93 L 0.77,0.98 L 0.72,0.95 L 0.68,0.97 L 0.63,0.94 L 0.59,0.98 L 0.54,0.95 L 0.5,0.99 L 0.46,0.96 L 0.41,0.98 L 0.37,0.95 L 0.32,0.99 L 0.28,0.96 L 0.23,1 L 0.18,0.97 L 0.14,0.99 L 0.1,0.96 L 0.05,1 L 0,0.97 Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
     <div id="app" class="relative">
 
-        <div class="header-bg relative w-full pb-16">
+        <div class="header-bg relative w-full torn-edge pb-16">
             <nav class="absolute top-6 left-0 w-full z-20">
                 <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
                     <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20"></a>
@@ -72,7 +84,9 @@
                 </div>
             </nav>
 
-            <main class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-white pt-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-green-800/80 via-green-900/90 to-black/90"></div>
+
+            <main class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-white">
                 <div class="flex flex-col items-center text-center gap-y-8">
                     <div class="bg-white/50 rounded-full flex items-center gap-x-6 px-6 py-3 text-gray-800">
                         <div class="flex items-center gap-x-2">
@@ -136,7 +150,7 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-x-4">
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                        <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" />
                        <path d="M16 3v4" />

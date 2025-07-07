@@ -253,23 +253,22 @@
                     </div>
 
                     <div class="flex flex-col items-center">
-                        <div class="relative w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
-                             <img src="https://via.placeholder.com/600x400.png?text=Galerie+zde" alt="Pizza v galerii" class="w-full h-auto">
+                        <div class="relative w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden aspect-video">
+                            <img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover">
                             
-                            <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c90a16] rounded-full p-3 transition-colors">
+                            <button @click="prevImage" class="absolute left-4 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c90a16] rounded-full p-3 transition-colors z-10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
                             </button>
-                            <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c90a16] rounded-full p-3 transition-colors">
+                            <button @click="nextImage" class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c90a16] rounded-full p-3 transition-colors z-10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                             </button>
                         </div>
                         <div class="mt-6 flex items-center gap-x-3">
-                            <button class="h-4 w-4 rounded-full border-2 border-[#E20B18]"></button>
-                            <button class="h-4 w-4 rounded-full border-2 border-[#E20B18]"></button>
-                            <button class="h-4 w-4 rounded-full bg-[#E20B18]"></button>
-                            <button class="h-4 w-4 rounded-full border-2 border-[#E20B18]"></button>
-                            <button class="h-4 w-4 rounded-full border-2 border-[#E20B18]"></button>
-                            <button class="h-4 w-4 rounded-full border-2 border-[#E20B18]"></button>
+                            <template v-for="(image, index) in gallery.images" :key="index">
+                                <button @click="goToImage(index)" 
+                                        :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-[#E20B18] hover:bg-[#e20b18]/20']">
+                                </button>
+                            </template>
                         </div>
                     </div>
 
@@ -280,6 +279,7 @@
 
     <script>
         const { createApp } = Vue;
+
         createApp({
             data() {
                 return {
@@ -294,7 +294,28 @@
                     slogan: 'Vždy čerstvá, vždy z lásky',
                     description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny',
                     phone: '+420 604 633 373',
-                    orderText: 'Objednat online'
+                    orderText: 'Objednat online',
+                    gallery: {
+                        currentIndex: 0,
+                        images: [
+                            'Images/pizza.webp',
+                            'Images/pizza1.jpg',
+                            'Images/pizza2.jpg',
+                            'Images/detskemenu.jpg',
+                            'Images/pizza3.jpg'
+                        ]
+                    }
+                }
+            },
+            methods: {
+                nextImage() {
+                    this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
+                },
+                prevImage() {
+                    this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length;
+                },
+                goToImage(index) {
+                    this.gallery.currentIndex = index;
                 }
             }
         }).mount('#app');

@@ -25,46 +25,44 @@
         min-height: 80vh;
     }
 
+    /* Spodní pozadí – vystupuje dolů */
     .header-background {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 130%;
+        inset: 0;
+        z-index: 0;
         background-image: url('Images/pozadi-header.png');
         background-size: cover;
         background-position: center bottom;
-        z-index: 0;
 
-        /* Potrhaný efekt na spodní hraně */
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        /* vytvoření "potrhaného" efektu u spodního okraje */
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
     }
 
+    /* Horní vrstva – hlavní vizuál */
     .header-foreground {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
+        inset: 0;
+        z-index: 1;
         background-image: url('Images/pizza.webp');
         background-size: cover;
         background-position: center;
-        z-index: 1;
-        opacity: 0.92;
+        opacity: 0.95;
     }
 
+    /* Překryv kvůli čitelnosti textu */
     .header-overlay {
         position: absolute;
         inset: 0;
+        z-index: 2;
         background: linear-gradient(
             180deg,
             rgba(5, 46, 22, 0.4) 0%,
             rgba(0, 0, 0, 0.4) 50%,
             transparent 100%
         );
-        z-index: 2;
     }
 
+    /* Obsah (texty, tlačítka) */
     .header-content {
         position: relative;
         z-index: 3;

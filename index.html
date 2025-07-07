@@ -31,6 +31,27 @@
             vertical-align: -0.2em;
             font-size: 0.6em;
         }
+
+        /* --- ZDE MŮŽETE LADIT PRŮHLEDNOST PŘECHODU --- */
+        .custom-gradient {
+            /*
+             Upravte tyto hodnoty pro vyladění průhlednosti přechodu.
+             Hodnoty jsou od 0.0 (zcela průhledné) do 1.0 (zcela neprůhledné).
+            */
+            --from-opacity: 0.4; /* Horní zelená barva */
+            --via-opacity:  0.6;  /* Prostřední černá barva */
+            --to-opacity:   0.7;   /* Spodní černá barva */
+
+            /* Kód níže generuje samotný přechod s vašimi hodnotami průhlednosti */
+            background-image: linear-gradient(
+                to bottom,
+                rgba(5, 46, 22, var(--from-opacity)),
+                rgba(0, 0, 0, var(--via-opacity)),
+                rgba(0, 0, 0, var(--to-opacity))
+            );
+        }
+        /* --- KONEC SEKCE PRO LADĚNÍ --- */
+
         @keyframes lure-pulse {
             0% {
                 transform: scale(1);
@@ -80,7 +101,7 @@
                 </div>
             </nav>
 
-            <div class="absolute inset-0 bg-gradient-to-b from-green-950/40 via-black/60 to-black/70"></div>
+            <div class="absolute inset-0 custom-gradient"></div>
             
             <main class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-white">
                 <div class="flex flex-col items-center text-center gap-y-8">

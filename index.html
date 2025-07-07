@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
@@ -13,92 +13,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
-<style>
-    body, html {
-        font-family: 'Montserrat', sans-serif;
-        background-color: #FFFFFF;
-    }
-
-    .header-container {
-        position: relative;
-        overflow: hidden;
-        min-height: 80vh;
-    }
-
-    /* Spodní pozadí – vystupuje dolů */
-    .header-background {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background-image: url('Images/pozadi-header.png');
-        background-size: cover;
-        background-position: center bottom;
-
-        /* vytvoření "potrhaného" efektu u spodního okraje */
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
-    }
-
-    /* Horní vrstva – hlavní vizuál */
-    .header-foreground {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background-image: url('Images/pizza.webp');
-        background-size: cover;
-        background-position: center;
-        opacity: 0.95;
-    }
-
-    /* Překryv kvůli čitelnosti textu */
-    .header-overlay {
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        background: linear-gradient(
-            180deg,
-            rgba(5, 46, 22, 0.4) 0%,
-            rgba(0, 0, 0, 0.4) 50%,
-            transparent 100%
-        );
-    }
-
-    /* Obsah (texty, tlačítka) */
-    .header-content {
-        position: relative;
-        z-index: 3;
-    }
-
-    .square-fix {
-        display: inline-block;
-        vertical-align: -0.2em;
-        font-size: 0.6em;
-    }
-
-    @keyframes lure-pulse {
-        0% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    <style>
+        body, html {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFFFFF;
         }
-        70% {
-            transform: scale(1.08);
-            box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
+        /* ZMĚNA: Vrstvené pozadí hlavičky */
+        .header-bg-bottom {
+            background-image: url('Images/pozadi-header.png');
+            background-size: cover;
+            background-position: center;
         }
-        100% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        .header-bg-top {
+            background-image: url('Images/pizza.webp');
+            background-size: cover;
+            background-position: center;
         }
-    }
-
-    .animate-lure-pulse {
-        animation: lure-pulse 1.8s infinite;
-    }
-
-    .bg-parchment {
-        background-image: url('Images/pozadi.png'); 
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-</style>
+        .square-fix {
+            display: inline-block;
+            vertical-align: -0.2em;
+            font-size: 0.6em;
+        }
+        @keyframes lure-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1.08);
+                box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        .animate-lure-pulse {
+            animation: lure-pulse 1.8s infinite;
+        }
+        .bg-parchment {
+            background-image: url('Images/pozadi.png'); 
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body class="bg-white">
     

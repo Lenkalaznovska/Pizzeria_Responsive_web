@@ -17,6 +17,7 @@
         body, html {
             font-family: 'Montserrat', sans-serif;
             background-color: #FFFFFF;
+            overflow-x: hidden; /* Zabrání horizontálnímu posouvání kvůli velkým nápisům */
         }
         
         .header-bg-bottom {
@@ -83,6 +84,8 @@
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden; /* Skryje části nápisů, které přesahují sekci */
         }
 </style>
 </head>
@@ -369,27 +372,22 @@
                 </div>
             </section>
             
-            <section class="bg-burgers py-16 lg:py-24 text-white">
-                <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <section class="bg-burgers py-16 lg:py-24 text-white relative">
+                <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
+                    <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
+                    <span class="text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>
+                </div>
+                <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
                     <div class="text-center">
                         <p class="italic">Co nabízíme mimo pizzy</p>
                         <h2 class="mt-4 text-3xl lg:text-4xl font-black uppercase tracking-wider">Burgery a kuřecí maso, které si zamiluješ</h2>
                     </div>
 
-                    <div class="mt-8 flex justify-center items-center gap-x-4">
-                        <button class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                        </button>
-                        <button class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        </button>
-                    </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
-                        <img src="Images/burger.jpg" alt="Burger" class="aspect-square w-full object-cover rounded-lg">
-                        <img src="Images/burger1.jpg" alt="Burger" class="aspect-square w-full object-cover rounded-lg">
-                        <img src="Images/wingit1.webp" alt="Kuřecí stripsy" class="aspect-square w-full object-cover rounded-lg">
-                        <img src="Images/wingit2.jpg" alt="Smažené pochoutky" class="aspect-square w-full object-cover rounded-lg">
+                        <img src="Images/burger2.jpg" alt="Burger na talíři" class="aspect-square w-full object-cover rounded-lg">
+                        <img src="Images/burger1.jpg" alt="Burger zblízka" class="aspect-square w-full object-cover rounded-lg">
+                        <img src="Images/wingit1.jpg" alt="Kuřecí stripsy s omáčkou" class="aspect-square w-full object-cover rounded-lg">
+                        <img src="Images/wingit2.jpg" alt="Burger s batátovými hranolky" class="aspect-square w-full object-cover rounded-lg">
                     </div>
                 </div>
             </section>

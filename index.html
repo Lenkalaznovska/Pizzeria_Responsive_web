@@ -21,6 +21,7 @@
             overflow-x: hidden; /* Zabrání horizontálnímu posouvání kvůli velkým nápisům */
         }
         
+        /* PŘIDÁNO: Nová třída pro kurzívní písmo */
         .font-cursive {
             font-family: 'Pacifico', cursive;
         }
@@ -205,14 +206,14 @@
             </div>
         </section>
 
-        <section class="pt-24 pb-12 bg-[#017D4D]">
+        <section class="pt-24 pb-12 bg-white">
             <div class="container mx-auto px-6 md:px-12 lg:px-20">
-                <div class="text-center mb-16">
-                    <p class="font-cursive text-4xl text-red-600 mb-2">Top výběr</p>
-                    <h2 class="text-white text-5xl lg:text-6xl font-black uppercase tracking-wider">Na čem si u nás pochutnáš?</h2>
+                <div class="text-left mb-16">
+                    <p class="text-red-500 font-bold text-lg mb-2">Top výběr</p>
+                    <h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na čem si u nás pochutnáš?</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-[34px]">
-                    <div class="relative bg-green-800/50 rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
+                    <div class="relative bg-[#017D4D] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
                         <div>
                             <h3 class="text-white text-4xl font-black uppercase">Pizzy</h3>
                             <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
@@ -222,7 +223,7 @@
                         </div>
                         <img src="Images/pizza1.jpg" alt="Pizzy" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
                     </div>
-                    <div class="relative bg-red-800/80 rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
+                    <div class="relative bg-[#E20B18] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
                         <div>
                             <h3 class="text-white text-4xl font-black uppercase">Burgery</h3>
                             <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
@@ -232,7 +233,7 @@
                         </div>
                         <img src="Images/burger.jpg" alt="Burgery" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
                     </div>
-                    <div class="relative bg-yellow-300/80 rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
+                    <div class="relative bg-[#FCDFA3] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
                         <div>
                             <h3 class="text-gray-900 text-4xl font-black uppercase">Kuřecí maso</h3>
                             <a href="#" class="text-gray-900 mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
@@ -247,12 +248,12 @@
         </section>
         
         <div class="relative">
-             <section class="bg-parchment pt-20 pb-16 relative z-10 text-center">
+            <section class="bg-parchment pt-20 pb-16 relative z-10">
                 <div class="container mx-auto px-12 md:px-16 lg:px-24">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div class="text-left">
-                            <p class="font-cursive text-4xl text-red-600">Tradice již od roku 1994</p>
-                            <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_50%)]">PROČ PIZZA U NÁS?</h2>
+                        <div>
+                            <p class="text-red-600 font-bold">Tradice již od roku 1994</p>
+                            <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-gray-900">PROČ PIZZA U NÁS?</h2>
                             <p class="mt-6 text-gray-700 leading-relaxed">
                                 Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů.
                             </p>
@@ -290,7 +291,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                                 </button>
                             </div>
-                            <div class="mt-6 flex items-center justify-center gap-x-3">
+                            <div class="mt-6 flex items-center gap-x-3">
                                 <template v-for="(image, index) in gallery.images" :key="index">
                                     <button @click="goToImage(index)" 
                                             :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-[#E20B18] hover:bg-[#e20b18]/20']">
@@ -311,8 +312,7 @@
 
                     <section class="relative z-20 bg-transparent">
                         <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
-                            <p class="font-cursive text-4xl text-red-600">Ceník</p>
-                            <h2 class="mt-2 text-5xl md:text-6xl font-black uppercase tracking-wider text-white">Nejčastější objednávky</h2>
+                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
 
                             <div class="flex justify-center flex-wrap gap-4 my-8">
                                 <button class="bg-red-600 text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
@@ -346,16 +346,16 @@
                 </div>
             </div>
 
-             <section class="bg-[#017D4D] py-16 lg:py-24">
+            <section class="bg-white py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div class="w-full h-96 bg-gray-200 rounded-2xl flex items-center justify-center text-gray-500 shadow-xl">
                             <p class="text-lg">Obrázky budou doplněny později</p>
                         </div>
-                        <div class="text-white">
-                            <p class="font-cursive text-4xl text-red-600">Retro prostory podniku</p>
-                            <h2 class="mt-4 text-4xl lg:text-5xl font-black uppercase tracking-wide text-white">Přijď si sednout.<br>U nás to voní poctivou pizzou</h2>
-                            <div class="mt-6 space-y-5 text-gray-200 leading-relaxed">
+                        <div>
+                            <p class="text-red-600 font-bold italic">Retro prostory podniku</p>
+                            <h2 class="mt-4 text-3xl lg:text-4xl font-black uppercase tracking-wide text-gray-900">Přijď si sednout. U nás to voní poctivou pizzou</h2>
+                            <div class="mt-6 space-y-5 text-gray-700 leading-relaxed">
                                 <p>
                                     San Marino není jen pizzerie. Je to místo, kam se chodí zpomalit. Kde voní čerstvě pečené těsto. Kde slyšíš cinkání skleniček a smích od vedlejšího stolu.
                                 </p>
@@ -378,15 +378,15 @@
                 </div>
             </section>
             
-             <section class="bg-[#017D4D] py-16 lg:py-24 text-white relative">
+            <section class="bg-[#017D4D] py-16 lg:py-24 text-white relative">
                 <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
                     <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
                     <span class="text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>
                 </div>
                 <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
                     <div class="text-center">
-                        <p class="font-cursive text-4xl text-red-600">Co nabízíme mimo pizzy</p>
-                        <h2 class="mt-2 text-5xl lg:text-6xl font-black uppercase tracking-wider text-white">Burgery a kuřecí maso,<br>které si zamiluješ</h2>
+                        <p class="font-cursive text-4xl">Co nabízíme mimo pizzy</p>
+                        <h2 class="mt-2 text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso,<br>které si zamiluješ</h2>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">

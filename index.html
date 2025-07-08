@@ -29,9 +29,8 @@
             background-image: url('Images/pizza.webp');
             background-size: cover;
             background-position: center;
-            /* ZMĚNA: Méně průhledný přechod, aby neprosvítala zelená */
-            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
 
         .pricelist-bg-bottom {
@@ -194,8 +193,7 @@
                     <h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na čem si u nás pochutnáš?</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-[34px]">
-                    
-                    <div class="relative bg-[#017D4D] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="relative bg-[#017D4D] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
                         <div>
                             <h3 class="text-white text-4xl font-black uppercase">Pizzy</h3>
                             <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
@@ -203,10 +201,9 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </a>
                         </div>
-                        <img src="Images/pizza1.jpg" alt="Pizzy" class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 rounded-full object-cover">
+                        <img src="Images/pizza1.jpg" alt="Pizzy" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
                     </div>
-                    
-                    <div class="relative bg-[#E20B18] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="relative bg-[#E20B18] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
                         <div>
                             <h3 class="text-white text-4xl font-black uppercase">Burgery</h3>
                             <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
@@ -214,10 +211,9 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </a>
                         </div>
-                        <img src="Images/burger.jpg" alt="Burgery" class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 rounded-full object-cover">
+                        <img src="Images/burger.jpg" alt="Burgery" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
                     </div>
-
-                    <div class="relative bg-[#FCDFA3] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="relative bg-[#FCDFA3] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
                         <div>
                             <h3 class="text-gray-900 text-4xl font-black uppercase">Kuřecí maso</h3>
                             <a href="#" class="text-gray-900 mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
@@ -225,7 +221,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </a>
                         </div>
-                        <img src="Images/wingit.jpg" alt="Kuřecí křídla" class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 rounded-full object-cover">
+                        <img src="Images/wingit.jpg" alt="Kuřecí křídla" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
                     </div>
                 </div>
             </div>
@@ -364,6 +360,7 @@
                             'Images/pizza3.jpg'
                         ]
                     },
+                    // ZMĚNA: Nové obrázky v ceníku
                     frequentOrders: [
                         { id: 1, name: 'Pizza se sýrem', description: 'Tomatový základ, sýr', price: '172', image: 'Images/pizza1.jpg' },
                         { id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr', price: '176', image: 'Images/pizza2.jpg' },

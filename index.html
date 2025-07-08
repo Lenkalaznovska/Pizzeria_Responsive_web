@@ -18,20 +18,16 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #FFFFFF;
         }
-        /* Spodní vrstva s potrhaným okrajem */
-        .header-bg-bottom {
-            background-image: url('Images/pozadi-header.png');
-            background-size: cover;
-            background-position: bottom;
-        }
-        /* Horní vrstva s pizzou */
+        
+        /* ZMĚNA: Spodní vrstva byla kompletně odstraněna */
+
+        /* Horní vrstva s pizzou a efektem potrhaného okraje */
         .header-bg-top {
             background-image: url('Images/pizza.webp');
             background-size: cover;
             background-position: center;
-            /* ZMĚNA: Přechod v masce je nyní ostrý */
-            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 85%);
-            mask-image: linear-gradient(to bottom, black 85%, transparent 85%);
+            /* ZMĚNA: Efekt potrhaného okraje aplikovaný přímo na obrázek pizzy */
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 96% 91%, 91% 87%, 85% 92%, 80% 86%, 75% 91%, 70% 85%, 65% 90%, 60% 84%, 55% 89%, 50% 83%, 45% 88%, 40% 82%, 35% 87%, 30% 81%, 25% 86%, 20% 80%, 15% 85%, 10% 79%, 5% 84%, 0 88%);
         }
         .square-fix {
             display: inline-block;
@@ -67,9 +63,7 @@
     <div id="app" class="relative bg-white">
         
         <div class="relative">
-            <div class="absolute inset-0 header-bg-bottom z-0"></div>
-
-            <div class="header-bg-top relative w-full pb-20 z-10 bg-transparent">
+            <div class="header-bg-top relative w-full pb-32 z-10 bg-transparent">
                 <nav class="absolute top-6 left-0 w-full z-20">
                     <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
                         <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20"></a>
@@ -92,7 +86,7 @@
                      style="
                         background-image: linear-gradient(
                             180deg, 
-                            rgba(5, 46, 22, 0.4) 0%, 
+                            rgba(0, 0, 0, 0.6) 0%, 
                             rgba(0, 0, 0, 0.4) 50%, 
                             transparent 100%
                         );
@@ -129,7 +123,7 @@
             </div>
         </div>
 
-        <section class="relative z-20 -mt-16 w-full flex justify-center">
+        <section class="relative z-20 -mt-24 w-full flex justify-center">
             <div class="bg-white text-gray-800 rounded-2xl shadow-xl px-10 py-5 flex items-start justify-center gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1">
                 
                 <div class="flex items-center gap-x-4">

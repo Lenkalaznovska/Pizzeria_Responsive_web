@@ -19,7 +19,7 @@
             background-color: #FFFFFF;
         }
         
-        /* ZMĚNA: Původní černý přechod nahrazen zeleným */
+        /* ZMĚNA: Staré třídy pro hlavičku již nejsou potřeba, nahrazeno novou .header-final */
         .header-final {
             background-image: url('Images/pizza.webp');
             background-size: cover;
@@ -75,11 +75,9 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
-        
-        /* ZMĚNA: background-size upraven na 100% 100% pro zobrazení celého obrázku */
         .bg-burgers {
-            background-image: url('Images/pozadi2.png');
-            background-size: 100% 100%;
+            background-image: url('Images/pozadi2.jpg');
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -90,8 +88,7 @@
     <div id="app" class="relative bg-white">
         
         <div class="header-final w-full">
-            <div class="relative z-10">
-                <nav class="absolute top-6 left-0 w-full z-20">
+            <div class="relative z-10"> <nav class="absolute top-6 left-0 w-full z-20">
                     <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
                         <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20"></a>
                         <div class="flex items-center">

@@ -29,9 +29,9 @@
             background-image: url('Images/pizza.webp');
             background-size: cover;
             background-position: center;
-            /* ZMĚNA: Místo clip-path použijeme masku pro plynulý přechod */
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            /* ZMĚNA: Přechod v masce je nyní ostrý */
+            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 85%);
+            mask-image: linear-gradient(to bottom, black 85%, transparent 85%);
         }
         .square-fix {
             display: inline-block;

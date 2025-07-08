@@ -31,9 +31,20 @@
             background-image: url('Images/pizza.webp');
             background-size: cover;
             background-position: center;
-            /* Maska, která odhalí spodní zelenou vrstvu */
             -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        /* ZMĚNA: Nová třída pro pozadí ceníku */
+        .pricelist-bg-top {
+            background-image: url('Images/burger.jpg');
+            background-color: rgba(0,0,0,0.5); /* Ztmavení pro čitelnost textu */
+            background-blend-mode: multiply;
+            background-size: cover;
+            background-position: center;
+            /* Maska pro plynulý přechod do zelené vrstvy */
+            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
         }
 
         .square-fix {
@@ -134,7 +145,6 @@
 
         <section class="relative z-20 -mt-16 w-full flex justify-center">
             <div class="bg-white text-gray-800 rounded-2xl shadow-xl px-10 py-5 flex items-start justify-center gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1">
-                
                 <div class="flex items-center gap-x-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -147,7 +157,6 @@
                         <span class="text-gray-500 text-base">11:00 - 21:15 <a href="#" class="text-red-600 underline font-semibold">Ceník</a></span>
                     </div>
                 </div>
-                
                 <div class="flex items-center gap-x-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -160,7 +169,6 @@
                         <span class="text-gray-500 text-base">10:45 - 21:15</span>
                     </div>
                 </div>
-
                 <div class="flex items-center gap-x-4">
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -218,6 +226,7 @@
                 </div>
             </div>
         </section>
+
         <div class="relative">
             <section class="bg-parchment pt-20 pb-16 relative z-10">
                 <div class="container mx-auto px-12 md:px-16 lg:px-24">
@@ -273,41 +282,48 @@
                     </div>
                 </div>
             </section>
+            
             <div class="relative -mt-16 z-0">
-                <div class="h-16 bg-black"></div>
-                <section class="bg-black" style="background-image: url('Images/pozadi1.jpg'); background-size: cover; background-position: center;">
-                    <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-8">
-                        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
-                        <div class="flex justify-center flex-wrap gap-4 my-8">
-                            <button class="bg-red-600 text-white font-bold py-2 px-6 rounded-full">Pizzy</button>
-                            <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
-                            <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
-                        </div>
-                        <div class="max-w-5xl mx-auto bg-black/60 backdrop-blur-md rounded-2xl p-6 md:p-8">
-                            <div class="space-y-4">
-                                <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 pb-4 last:border-b-0 gap-4">
-                                    <div class="flex items-center gap-x-4 w-full md:w-auto">
-                                        <img :src="item.image" :alt="item.name" class="w-16 h-16 md:w-20 md:h-20 rounded-md object-cover">
-                                        <div class="flex-grow">
-                                            <p class="font-bold text-md md:text-lg text-left">{{ item.id }}. {{ item.name }}</p>
-                                            <p class="text-left text-sm text-gray-300">{{ item.description }}</p>
+                <div class="relative">
+                    <div class="absolute inset-0 header-bg-bottom z-0"></div>
+                    <div class="absolute inset-0 pricelist-bg-top z-10"></div>
+                    <section class="relative z-20 bg-transparent">
+                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-8">
+                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
+
+                            <div class="flex justify-center flex-wrap gap-4 my-8">
+                                <button class="bg-red-600 text-white font-bold py-2 px-6 rounded-full">Pizzy</button>
+                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
+                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
+                            </div>
+
+                            <div class="max-w-5xl mx-auto bg-black/60 backdrop-blur-md rounded-2xl p-6 md:p-8">
+                                <div class="space-y-4">
+                                    <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 pb-4 last:border-b-0 gap-4">
+                                        <div class="flex items-center gap-x-4 w-full md:w-auto">
+                                            <img :src="item.image" :alt="item.name" class="w-16 h-16 md:w-20 md:h-20 rounded-md object-cover">
+                                            <div class="flex-grow">
+                                                <p class="font-bold text-md md:text-lg text-left">{{ item.id }}. {{ item.name }}</p>
+                                                <p class="text-left text-sm text-gray-300">{{ item.description }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end">
-                                        <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
-                                        <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button>
-                                        <button class="bg-red-600 hover:bg-red-700 transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button>
+                                        <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end">
+                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
+                                            <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button>
+                                            <button class="bg-red-600 hover:bg-red-700 transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="mt-8">
+                                <a href="#" class="inline-block border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all">
+                                    Zobrazit celé menu
+                                </a>
+                            </div>
                         </div>
-                        <div class="mt-8">
-                            <a href="#" class="inline-block border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all">
-                                Zobrazit celé menu
-                            </a>
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </div>
         </div>
 

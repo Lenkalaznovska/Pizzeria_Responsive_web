@@ -19,14 +19,12 @@
             background-color: #FFFFFF;
         }
         
-        /* Spodní vrstva (zelený obrázek s potrhaným okrajem) */
         .header-bg-bottom {
             background-image: url('Images/pozadi-header.png');
             background-size: cover;
             background-position: bottom;
         }
 
-        /* Horní vrstva s pizzou */
         .header-bg-top {
             background-image: url('Images/pizza.webp');
             background-size: cover;
@@ -35,16 +33,18 @@
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
 
-        /* ZMĚNA: Nová třída pro pozadí ceníku */
-        .pricelist-bg-top {
-            background-image: url('Images/burger.jpg');
-            background-color: rgba(0,0,0,0.5); /* Ztmavení pro čitelnost textu */
-            background-blend-mode: multiply;
+        /* ZMĚNA: Nové třídy pro pozadí ceníku */
+        .pricelist-bg-bottom {
+            background-image: url('Images/pozadi1.jpg');
             background-size: cover;
             background-position: center;
-            /* Maska pro plynulý přechod do zelené vrstvy */
-            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+        }
+        .pricelist-bg-top {
+            background-image: url('Images/burger.jpg');
+            background-size: cover;
+            background-position: center;
+            -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
+            mask-image: linear-gradient(to top, black 85%, transparent 100%);
         }
 
         .square-fix {
@@ -226,7 +226,7 @@
                 </div>
             </div>
         </section>
-
+        
         <div class="relative">
             <section class="bg-parchment pt-20 pb-16 relative z-10">
                 <div class="container mx-auto px-12 md:px-16 lg:px-24">
@@ -285,10 +285,10 @@
             
             <div class="relative -mt-16 z-0">
                 <div class="relative">
-                    <div class="absolute inset-0 header-bg-bottom z-0"></div>
+                    <div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
                     <div class="absolute inset-0 pricelist-bg-top z-10"></div>
                     <section class="relative z-20 bg-transparent">
-                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-8">
+                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
                             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
 
                             <div class="flex justify-center flex-wrap gap-4 my-8">
@@ -297,7 +297,7 @@
                                 <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
                             </div>
 
-                            <div class="max-w-5xl mx-auto bg-black/60 backdrop-blur-md rounded-2xl p-6 md:p-8">
+                            <div class="max-w-5xl mx-auto bg-black/75 backdrop-blur-md rounded-2xl p-6 md:p-8">
                                 <div class="space-y-4">
                                     <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 pb-4 last:border-b-0 gap-4">
                                         <div class="flex items-center gap-x-4 w-full md:w-auto">

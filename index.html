@@ -96,9 +96,6 @@
 </style>
 </head>
 <body class="bg-white">
-
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v23.0"></script>
     
     <div id="app" class="relative bg-white">
         
@@ -405,10 +402,10 @@
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
                     <div class="text-center mb-12">
                         <p class="font-cursive text-[#E20B18] text-4xl">Zůstaňte v obraze</p>
-                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJTE NÁS NA FACEBOOKU</h2>
+                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJTE NÁS ONLINE</h2>
                     </div>
                     <div class="flex justify-center">
-                        <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100095016576324" data-tabs="timeline" data-width="340" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/profile.php?id=100095016576324" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/profile.php?id=100095016576324">San Marino Kladno</a></blockquote></div>
+                        <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
                     </div>
                 </div>
             </section>
@@ -463,6 +460,15 @@
                 }
             }
         }).mount('#app');
+    </script>
+    
+    <script type="text/javascript">
+    /* curator-feed-default-feed-layout */
+    (function(){
+    var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+    i.src="https://cdn.curator.io/published/476ff8f0-13ec-4a40-a331-78ca49adbac3.js";
+    e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+    })();
     </script>
 </body>
 </html>

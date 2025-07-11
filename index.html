@@ -353,7 +353,7 @@
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div class="w-full flex justify-center items-center">
-                            <div class="fb-video lazy-load-video" data-href="https://www.facebook.com/reel/648864994593707" data-width="300" data-show-text="false"></div>
+                            <div class="fb-video" data-href="https://www.facebook.com/reel/648864994593707" data-width="350" data-show-text="false" data-autoplay="true"></div>
                         </div>
                         <div>
                             <p class="font-cursive text-[#E20B18] text-4xl">Retro prostory podniku</p>
@@ -409,9 +409,9 @@
                     </div>
                     <div class="flex flex-wrap justify-center items-start gap-8">
                         
-                        <div class="fb-video lazy-load-video" data-href="https://www.facebook.com/reel/602203585644561" data-width="250" data-show-text="false"></div>
-                        <div class="fb-video lazy-load-video" data-href="https://www.facebook.com/reel/1140715001404301" data-width="250" data-show-text="false"></div>
-                        <div class="fb-video lazy-load-video" data-href="https://www.facebook.com/reel/1160258055860243" data-width="250" data-show-text="false"></div>
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/602203585644561" data-width="350" data-show-text="false" data-autoplay="true"></div>
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/1140715001404301" data-width="350" data-show-text="false" data-autoplay="true"></div>
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/1160258055860243" data-width="350" data-show-text="false" data-autoplay="true"></div>
 
                     </div>
                 </div>
@@ -467,38 +467,6 @@
                 }
             }
         }).mount('#app');
-    </script>
-    
-    <script>
-        window.fbAsyncInit = function() {
-            FB.XFBML.parse();
-
-            const lazyVideos = document.querySelectorAll('.lazy-load-video');
-
-            if ('IntersectionObserver' in window) {
-                let videoObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            const videoDiv = entry.target;
-                            videoDiv.dataset.autoplay = 'true';
-                            if (videoDiv.parentNode) {
-                                FB.XFBML.parse(videoDiv.parentNode);
-                            }
-                            videoObserver.unobserve(videoDiv);
-                        }
-                    });
-                }, { rootMargin: "0px 0px -50px 0px" });
-
-                lazyVideos.forEach(function(video) {
-                    videoObserver.observe(video);
-                });
-            } else {
-                lazyVideos.forEach(function(videoDiv) {
-                    videoDiv.dataset.autoplay = 'true';
-                });
-                FB.XFBML.parse();
-            }
-        };
     </script>
     
 </body>

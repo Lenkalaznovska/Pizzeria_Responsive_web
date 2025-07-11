@@ -18,10 +18,9 @@
         body, html {
             font-family: 'Montserrat', sans-serif;
             background-color: #FFFFFF;
-            overflow-x: hidden; /* Zabrání horizontálnímu posouvání kvůli velkým nápisům */
+            overflow-x: hidden;
         }
         
-        /* Třída pro kurzivní písmo Pacifico */
         .font-cursive {
             font-family: 'Pacifico', cursive;
         }
@@ -63,18 +62,9 @@
             font-size: 0.6em;
         }
         @keyframes lure-pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-            70% {
-                transform: scale(1.08);
-                box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
         .animate-lure-pulse {
             animation: lure-pulse 1.8s infinite;
@@ -87,17 +77,19 @@
         
         .bg-burgers {
             background-image: url('Images/pozadi2.jpg');
-            background-size: 100% 100%;
+            background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             position: relative;
-            overflow: hidden; /* Skryje části nápisů, které přesahují sekci */
+            overflow: hidden;
         }
         .review-card {
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M92.15 0.720001C88.15 1.72 83.65 1.22 79.65 1.22C74.65 1.22 69.15 2.22 64.65 2.72C59.15 3.22 53.65 2.72 48.15 2.72C43.15 2.72 37.65 3.72 32.65 4.72C26.65 5.72 20.15 7.72 14.65 9.22C9.15002 10.72 4.15002 12.72 1.15002 17.72C-1.84998 22.72 0.150017 28.72 0.650017 33.72C1.15002 38.72 1.15002 44.22 1.15002 49.22C1.15002 54.22 1.15002 59.72 0.650017 64.72C0.150017 69.72 -1.34998 75.72 1.65002 80.22C4.65002 84.72 9.65002 87.22 14.65 88.72C20.15 90.22 26.65 92.22 32.65 93.22C37.65 94.22 43.15 95.22 48.15 95.22C53.65 95.22 59.15 94.72 64.65 95.22C69.15 95.72 74.65 96.72 79.65 96.72C83.65 96.72 88.15 96.22 92.15 97.22C96.15 98.22 98.65 96.22 99.65 92.72C100.65 89.22 100.15 84.72 100.15 80.22C100.15 75.72 100.65 70.22 100.15 65.22C99.65 60.22 99.15 54.72 99.15 49.72C99.15 44.72 99.65 39.22 100.15 34.22C100.65 29.22 100.15 23.72 98.15 19.22C96.15 14.72 92.65 11.22 88.15 9.22C83.15 7.22 77.15 5.22 71.65 4.22C66.15 3.22 60.65 2.72 55.15 2.22C50.15 1.72 45.15 1.22 40.15 0.720001C35.15 0.220001 29.65 -0.279999 24.65 0.220001C19.65 0.720001 13.65 1.22 8.15 1.72C5.15 2.22 2.15 2.72 0.650017 5.22C-0.849983 7.72 0.650017 10.72 1.15002 13.72' stroke='%23000' stroke-width='0'/%3E%3C/svg%3E");
+            background-color: white;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='351' height='196' viewBox='0 0 351 196' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M344.331 0.500001C333.331 2.5 320.331 1.5 308.331 1.5C294.331 1.5 278.831 3.5 265.831 4.5C250.331 5.5 232.831 4.5 214.331 4.5C197.331 4.5 178.831 6.5 160.831 8.5C140.331 10.5 117.831 14.5 98.3312 17.5C78.8312 20.5 57.3312 24.5 42.3312 34.5C27.3312 44.5 30.8312 56.5 31.8312 66.5C32.8312 76.5 32.8312 87.5 32.8312 98.5C32.8312 109.5 32.8312 120.5 31.8312 130.5C30.8312 140.5 28.3312 152.5 43.3312 161.5C58.3312 170.5 78.8312 175.5 98.3312 178.5C117.831 181.5 140.331 185.5 160.831 187.5C178.831 189.5 197.331 191.5 214.331 191.5C232.831 191.5 250.331 190.5 265.831 191.5C278.831 192.5 294.331 194.5 308.331 194.5C320.331 194.5 333.331 193.5 344.331 195.5C355.331 197.5 359.831 193.5 361.831 186.5C363.831 179.5 362.831 170.5 362.831 161.5C362.831 152.5 363.831 141.5 362.831 131.5C361.831 121.5 360.831 110.5 360.831 99.5C360.831 88.5 361.831 77.5 362.831 67.5C363.831 57.5 362.831 46.5 358.831 37.5C354.831 28.5 345.831 21.5 334.831 17.5C323.831 13.5 310.331 9.5 297.331 7.5C284.331 5.5 270.831 4.5 255.331 3.5C241.331 2.5 225.831 1.5 211.831 0.500001C197.831 -0.499999 182.331 -0.499999 168.331 0.500001C154.331 1.5 137.831 1.5 122.331 2.5C112.331 3.5 101.331 4.5 91.8312 5.5C87.3312 6.5 82.8312 7.5 79.8312 10C76.8312 12.5 79.8312 15.5 81.3312 18.5' stroke='%23000' stroke-width='0'/%3E%3C/svg%3E");
             -webkit-mask-size: 100% 100%;
             mask-size: 100% 100%;
-}
+        }
 </style>
 </head>
 <body class="bg-white">
@@ -406,6 +398,108 @@
                     </div>
                 </div>
             </section>
+
+            <section class="bg-gray-100 py-16 lg:py-24">
+                <div class="container mx-auto px-6 md:px-12 lg:px-20">
+                    <div class="text-center mb-12">
+                        <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Recenze</p>
+                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-12 text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#2c65a8" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"/><path fill="#fff" d="M30.222 17.29l-2.022.001c-.722 0-1.021.343-1.021.848v1.446h3.021l-.484 2.895h-2.537V34h-3.863V22.48h-2.639v-2.895h2.639v-1.74c0-2.334 1.258-3.834 3.931-3.834h2.296v2.894z"/></svg>
+                            <span class="font-bold">FIRMY.CZ</span>
+                            <span>4.2 Hodnocení</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="#d70f64" d="M128 0C57.308 0 0 57.308 0 128c0 70.691 57.308 128 128 128 70.691 0 128-57.309 128-128C256 57.308 198.691 0 128 0zm3.268 35.845l24.78 4.733c2.72 1.214 3.753 2.14 4.542 3.194a10.02 10.02 0 0 1 2.923 5.485c.224.96.224 8.718.224 37.66s0 36.7-.224 37.66a10.02 10.02 0 0 1-2.922 5.485c-.79 1.054-1.823 1.98-4.543 3.194l-24.78 4.733c-11.758 2.25-38.625 2.25-50.383 0l-24.78-4.733c-2.72-1.214-3.753-2.14-4.542-3.194a10.02 10.02 0 0 1-2.923-5.485c-.224-.96-.224-8.718-.224-37.66s0-36.7.224-37.66a10.02 10.02 0 0 1 2.922-5.485c.79-1.054 1.823-1.98 4.543-3.194l24.78-4.733c11.758-2.25 38.625-2.25 50.383 0z"/><path fill="#fff" d="M109.112 119.063c0-10.638-8.58-19.219-19.219-19.219s-19.219 8.58-19.219 19.219 8.58 19.219 19.219 19.219 19.219-8.58 19.219-19.219zm-31.594.135c0-6.834 5.53-12.365 12.365-12.365 6.834 0 12.365 5.53 12.365 12.365s-5.53 12.365-12.365 12.365c-6.834 0-12.365-5.53-12.365-12.365zM128.53 93.996c14.65 0 20.927.08 22.28 1.433 1.093 1.093 1.298 3.14 1.482 9.07v.518c.185 5.93.02 8.026-.88 9.027-1.144 1.277-3.24 1.433-9.522 1.433h-1.98c-6.281 0-8.377-.156-9.522-1.433-.9-1-1.066-3.098-.88-9.027v-.518c.184-5.93.389-7.977 1.482-9.07 1.353-1.353 7.63-1.433 22.28-1.433zm-46.732 31.907c0-2.828.61-5.118 2.062-6.57 2.115-2.115 5.34-2.828 11.233-2.828h.518c5.894 0 9.118.713 11.233 2.828 1.452 1.452 2.062 3.742 2.062 6.57s-.61 5.118-2.062 6.57c-2.115 2.115-5.34 2.828-11.233 2.828h-.518c-5.894 0-9.118-.713-11.233-2.828-1.452-1.452-2.062-3.742-2.062-6.57z"/></svg>
+                            <span class="font-bold">foodora</span>
+                            <span>1700+ Hodnocení</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.574l6.19,5.238C39.99,35.591,44,29.891,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
+                            <span class="font-bold">Google</span>
+                            <span>4.0 Hodnocení</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                        <div class="review-card flex flex-col h-full">
+                            <p class="text-gray-700 leading-relaxed flex-grow">Včera jsme si u Vás dali k obědu ”pizza koláč”, jak já tomu s oblibou říkám a pochutnali jsme si. Nepřijde mi, že by se na Vaší pizze něco změnilo, je stále stejně dobrá, jako před lety. Kdo si zde chce dát pizzu, nečekejte italskou klasiku. Každému chutnat nebude, to dá rozum. Ale podle kurýrů a počtu lidí, kteří si pro pizzu chodili, má stále svoje fanoušky. I my k nim patříme.</p>
+                            <div class="flex items-center gap-3 mt-auto pt-4">
+                                <span class="flex items-center justify-center w-12 h-12 bg-red-100 text-red-600 font-bold text-xl rounded-full">L</span>
+                                <div>
+                                    <p class="font-bold text-gray-800">Lucie Bubeníková</p>
+                                    <p class="text-sm text-gray-500">Google recenze</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card flex flex-col h-full">
+                            <p class="text-gray-700 leading-relaxed flex-grow">Můj hodně dlouhodobý názor je, že je to nejlepší pizza v širokém okolí.</p>
+                             <div class="flex items-center gap-3 mt-auto pt-4">
+                                <img src="https://lh3.googleusercontent.com/a-/ALV-UjV-J2dY_A2zQYqj4q_0hJq_s8g0w-vL8eY0Z4j4J3Z_j_s=w40-h40-p-rp-mo-ba4-br100" alt="Tomas Kutilek" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <p class="font-bold text-gray-800">Tomas Kutilek</p>
+                                    <p class="text-sm text-gray-500">Google recenze</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card flex flex-col h-full">
+                            <p class="text-gray-700 leading-relaxed flex-grow">Super pizza. Velmi příjemná obsluha. Doporučujeme. 🤗</p>
+                             <div class="flex items-center gap-3 mt-auto pt-4">
+                                <img src="https://lh3.googleusercontent.com/a/ACg8ocL-f_1v_Zt5p9yY_g3qJ4-0zJ3dYt_0b8z4N5c_X7M=w40-h40-p-rp-mo-br100" alt="TG 70" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <p class="font-bold text-gray-800">TG 70</p>
+                                    <p class="text-sm text-gray-500">Google recenze</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card flex flex-col h-full">
+                            <p class="text-gray-700 leading-relaxed flex-grow">Pravidelně chodíme s kamarádkou na nejlepší pizzu! Je to taková srdcovka a slečna servírka vždy skvělá, ochotná a milá. ❤</p>
+                             <div class="flex items-center gap-3 mt-auto pt-4">
+                                <img src="https://lh3.googleusercontent.com/a/ACg8ocKq5h8g_Y3qJq-0zJ3dYt_0b8z4N5c_X7M=w40-h40-p-rp-mo-br100" alt="kleinver 178" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <p class="font-bold text-gray-800">kleinver 178</p>
+                                    <p class="text-sm text-gray-500">Google recenze</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card flex flex-col h-full">
+                            <p class="text-gray-700 leading-relaxed flex-grow">Měla jsem zde pizzu, byla výborná byť trochu mastnější. Slečna co nás obsluhovala byla skvělá a milá. Docela jsme se nasmály. Děkuji, přijdu znovu 🥹😂</p>
+                             <div class="flex items-center gap-3 mt-auto pt-4">
+                                <img src="https://lh3.googleusercontent.com/a/ACg8ocK-f_1v_Zt5p9yY_g3qJ4-0zJ3dYt_0b8z4N5c_X7M=w40-h40-p-rp-mo-br100" alt="Veronika Vršeská" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <p class="font-bold text-gray-800">Veronika Vršeská</p>
+                                    <p class="text-sm text-gray-500">Google recenze</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card flex flex-col h-full">
+                            <p class="text-gray-700 leading-relaxed flex-grow">Nejlepší pizza na Kladně, a úžasná obsluha🫶🏻</p>
+                             <div class="flex items-center gap-3 mt-auto pt-4">
+                                <span class="flex items-center justify-center w-12 h-12 bg-orange-100 text-orange-600 font-bold text-xl rounded-full">K</span>
+                                <div>
+                                    <p class="font-bold text-gray-800">Klara Liskova</p>
+                                    <p class="text-sm text-gray-500">Google recenze</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <a href="#" class="inline-flex items-center gap-3 bg-white text-gray-700 font-semibold px-6 py-3 rounded-full border border-gray-300 hover:bg-gray-50 transition-colors shadow-sm">
+                            <svg class="w-6 h-6" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#34A853" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#FBBC05" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#EA4335" d="M24,28c-3.732,0-6.889-2.227-8.234-5.295l-6.6,5.24C11.9,34.552,17.625,38,24,38c3.337,0,6.41-0.984,9.077-2.624l-5.657-5.657C26.598,27.309,25.368,28,24,28z"/></svg>
+                            <span>Zobrazit více referencí</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
             
             <section class="bg-white py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
@@ -434,6 +528,50 @@
                     </div>
                 </div>
             </section>
+
+            <div class="relative -mt-16 z-0">
+                <div class="relative">
+                    <div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
+                    <div class="absolute inset-0 pricelist-bg-top z-10"></div>
+                    
+                    <div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
+
+                    <section class="relative z-20 bg-transparent">
+                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
+                            <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
+                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
+
+                            <div class="flex justify-center flex-wrap gap-4 my-8">
+                                <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
+                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
+                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
+                            </div>
+
+                            <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8">
+                                <div class="space-y-4">
+                                    <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-2 last:border-b-0 gap-4">
+                                        <div class="flex-grow text-left">
+                                            <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p>
+                                            <p class="text-sm text-gray-300">{{ item.description }}</p>
+                                        </div>
+                                        <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end">
+                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
+                                            <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button>
+                                            <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse">
+                                    Zobrazit celé menu
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
 
         </div>
     </div>

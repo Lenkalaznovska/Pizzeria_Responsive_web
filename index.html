@@ -96,7 +96,10 @@
 </style>
 </head>
 <body class="bg-white">
-    
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v23.0"></script>
+
     <div id="app" class="relative bg-white">
         
         <div class="relative">
@@ -404,9 +407,11 @@
                         <p class="font-cursive text-[#E20B18] text-4xl">Zůstaňte v obraze</p>
                         <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJTE NÁS ONLINE</h2>
                     </div>
-                    <div class="flex justify-center">
-                        <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
-                    </div>
+                    <div class="flex flex-wrap justify-center items-start gap-8">
+                        
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/602203585644561" data-width="250" data-show-text="false"></div>
+
+                        </div>
                 </div>
             </section>
             </div>
@@ -462,13 +467,5 @@
         }).mount('#app');
     </script>
     
-    <script type="text/javascript">
-    /* curator-feed-default-feed-layout */
-    (function(){
-    var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
-    i.src="https://cdn.curator.io/published/476ff8f0-13ec-4a40-a331-78ca49adbac3.js";
-    e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-    })();
-    </script>
 </body>
 </html>

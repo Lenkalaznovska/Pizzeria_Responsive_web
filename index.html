@@ -314,82 +314,6 @@
                 </div>
             </section>
             
-            <div class="relative -mt-16 z-0">
-                <div class="relative">
-                    <div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
-                    <div class="absolute inset-0 pricelist-bg-top z-10"></div>
-                    
-                    <div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
-
-                    <section class="relative z-20 bg-transparent">
-                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
-                            <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
-                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
-
-                            <div class="flex justify-center flex-wrap gap-4 my-8">
-                                <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
-                            </div>
-
-                            <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8">
-                                <div class="space-y-4">
-                                    <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-2 last:border-b-0 gap-4">
-                                        <div class="flex-grow text-left">
-                                            <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p>
-                                            <p class="text-sm text-gray-300">{{ item.description }}</p>
-                                        </div>
-                                        <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end">
-                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
-                                            <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button>
-                                            <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-8">
-                                <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse">
-                                    Zobrazit celé menu
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-
-            <section class="bg-white py-16 lg:py-24">
-                <div class="container mx-auto px-6 md:px-12 lg:px-20">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div class="w-full flex justify-center items-center">
-                            <div class="fb-video" data-href="https://www.facebook.com/reel/648864994593707" data-width="250" data-show-text="false" data-autoplay="true"></div>
-                        </div>
-                        <div>
-                            <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Prostory podniku</p>
-                            <h2 class="mt-4 text-3xl lg:text-4xl font-black uppercase tracking-wide text-gray-900">Přijď si sednout. U nás to voní poctivou pizzou</h2>
-                            <div class="mt-6 space-y-5 text-gray-700 leading-relaxed">
-                                <p>
-                                    San Marino není jen pizzerie. Je to místo, kam se chodí zpomalit. Kde voní čerstvě pečené těsto. Kde slyšíš cinkání skleniček a smích od vedlejšího stolu.
-                                </p>
-                                <p>
-                                    Náš podnik má duši. Od roku 1994 tu pečeme pizzu, kterou si pamatuješ ještě druhý den. Těsto děláme každý den ručně. Sýr se táhne, kůrka křupe a porce jsou tak akorát, aby zbylo místo i na dezert.
-                                </p>
-                                <p>
-                                    Ať už přijdeš na oběd, večeři nebo jen na kafe – budeš vítán.
-                                </p>
-                                <p>
-                                    S rodinou. S kamarády. Nebo klidně sám.
-                                </p>
-                            </div>
-                            <a :href="'tel:' + phone.replace(/\s/g, '')" class="mt-8 inline-flex items-center gap-x-3 bg-[#E20B18] text-white font-bold text-lg rounded-full px-8 py-4 hover:bg-[#c00a15] transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
-                                <span>+420 604 633 373</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
             <section class="bg-burgers py-16 lg:py-24 text-white relative">
                 <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
                     <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
@@ -409,7 +333,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <section class="bg-gray-100 py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
                     <div class="text-center mb-12">
@@ -515,8 +439,8 @@
             <section class="bg-white py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
                     <div class="text-center mb-12">
-                        <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Zůstaňte v obraze</p>
-                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJTE NÁS ONLINE</h2>
+                        <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Zůstaň v obraze</p>
+                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJ NÁS ONLINE</h2>
                         <div class="flex justify-center items-center gap-10 mt-8 mb-12">
                             <a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" class="transition-transform hover:scale-110">
                                 <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><rect width="24" height="24" rx="6" fill="#1877F2"/><path d="M15.81 7.42h-1.928c-.493 0-.696.347-.696.816v1.23h2.59l-.427 2.735H13.18V20H9.44v-7.799H6.81v-2.735h2.63V7.126c0-2.31 1.29-3.626 3.49-3.626h2.37v2.92z" fill="white"/></svg>

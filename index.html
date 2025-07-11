@@ -11,18 +11,21 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     
 <style>
         body, html {
             font-family: 'Montserrat', sans-serif;
             background-color: #FFFFFF;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Zabrání horizontálnímu posouvání kvůli velkým nápisům */
         }
+        
+        /* Třída pro kurzivní písmo Pacifico */
         .font-cursive {
             font-family: 'Pacifico', cursive;
         }
+
         .header-bg-bottom {
             background-color: #9CA3AF; 
             -webkit-mask-image: url('Images/pozadi-header.png');
@@ -32,6 +35,7 @@
             -webkit-mask-position: bottom;
             mask-position: bottom;
         }
+
         .header-bg-top {
             background-image: url('Images/pizza.webp');
             background-size: cover;
@@ -39,6 +43,7 @@
             -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
+
         .pricelist-bg-bottom {
             background-image: url('Images/pozadi1.jpg');
             background-size: cover;
@@ -51,15 +56,25 @@
             -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
             mask-image: linear-gradient(to top, black 85%, transparent 100%);
         }
+
         .square-fix {
             display: inline-block;
             vertical-align: -0.2em;
             font-size: 0.6em;
         }
         @keyframes lure-pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-            70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1.08);
+                box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
         }
         .animate-lure-pulse {
             animation: lure-pulse 1.8s infinite;
@@ -69,13 +84,14 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
+        
         .bg-burgers {
             background-image: url('Images/pozadi2.jpg');
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Skryje části nápisů, které přesahují sekci */
         }
 </style>
 </head>
@@ -89,6 +105,7 @@
         <div class="relative">
             <div class="absolute inset-0 header-bg-bottom z-0"></div>
             <div class="absolute inset-0 bg-white/40 z-[5]"></div>
+
             <div class="header-bg-top relative w-full pb-20 z-10 bg-transparent">
                 <nav class="absolute top-6 left-0 w-full z-20">
                     <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
@@ -98,21 +115,32 @@
                                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="hover:text-gray-300 transition-colors">{{ item.name }}</a>
                             </div>
                             <div class="flex items-center gap-x-6 ml-8">
-                                <a :href="'tel:' + phone.replace(/\s/g, '')" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
-                                    <span>{{ phone }}</span>
-                                </a>
+                                    <a :href="'tel:' + phone.replace(/\s/g, '')" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
+                                        <span>{{ phone }}</span>
+                                    </a>
                                 <a href="#" class="hidden lg:block text-white font-bold text-lg border-b-2 border-white pb-1 hover:text-gray-300 transition-colors"><span>{{ orderText }}</span></a>
                             </div>
                         </div>
                     </div>
                 </nav>
-                <div class="absolute inset-0" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);"></div>
+
+                <div class="absolute inset-0" 
+                     style="
+                          background-image: linear-gradient(
+                                180deg, 
+                                rgba(0, 0, 0, 0.4) 0%, 
+                                rgba(0, 0, 0, 0.2) 50%, 
+                                transparent 100%
+                          );
+                "></div>
+                
                 <main class="relative z-10 flex flex-col items-center justify-center min-h-[85vh] text-white">
                     <div class="flex flex-col items-center text-center gap-y-8 pt-28">
                         <div class="bg-white/40 rounded-full flex items-center gap-x-2 px-6 py-3">
                             <span class="text-lg font-semibold text-white">Jsme TOP 4. Pizzerie v Kladně!🏅</span>
                         </div>
+                        
                         <div class="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 py-4">
                             <h1 class="text-5xl md:text-6xl font-black uppercase tracking-wide">
                                 <span>{{ title }}</span><span class="square-fix">▪</span>
@@ -121,7 +149,9 @@
                                 <span>{{ slogan }}</span><span class="square-fix">▪</span>
                             </h2>
                         </div>
-                        <p class="text-lg md:text-xl font-semibold">{{ description }}</p>
+                        
+                        <p class="text-lg md:text-xl font-normal">{{ description }}</p>
+                        
                         <div class="flex flex-col sm:flex-row items-center gap-10 pt-4">
                             <a :href="'tel:' + phone.replace(/\s/g, '')" class="animate-lure-pulse bg-[#E20B18] text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
@@ -182,7 +212,7 @@
         <section class="pt-24 pb-12 bg-white">
             <div class="container mx-auto px-6 md:px-12 lg:px-20">
                 <div class="text-left mb-16">
-                    <p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Naše dobroty</p>
+                    <p class="font-cursive text-[#E20B18] text-4xl mb-2">Top výběr</p>
                     <h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na čem si u nás pochutnáš?</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-[34px]">
@@ -219,28 +249,34 @@
                 </div>
             </div>
         </section>
-
+        
         <div class="relative">
             <section class="bg-parchment pt-20 pb-16 relative z-10">
                 <div class="container mx-auto px-12 md:px-16 lg:px-24">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Tradice již od roku 1994</p>
+                            <p class="font-cursive text-[#E20B18] text-4xl">Tradice již od roku 1994</p>
                             <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-gray-900">PROČ PIZZA U NÁS?</h2>
                             <p class="mt-6 text-gray-700 leading-relaxed">
                                 Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů.
                             </p>
                             <div class="mt-8 space-y-4">
                                 <div class="flex items-start gap-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
                                     <span class="text-gray-800 font-medium">Těsto je nadýchané s křupavým okrajem.</span>
                                 </div>
                                 <div class="flex items-start gap-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
                                     <span class="text-gray-800 font-medium">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
                                 </div>
                                 <div class="flex items-start gap-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
                                     <span class="text-gray-800 font-medium">Bohatá porce kvalitních surovin.</span>
                                 </div>
                             </div>
@@ -269,20 +305,24 @@
                     </div>
                 </div>
             </section>
+            
             <div class="relative -mt-16 z-0">
                 <div class="relative">
                     <div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
                     <div class="absolute inset-0 pricelist-bg-top z-10"></div>
+                    
                     <div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
+
                     <section class="relative z-20 bg-transparent">
                         <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
-                            <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
                             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
+
                             <div class="flex justify-center flex-wrap gap-4 my-8">
                                 <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
                                 <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
                                 <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
                             </div>
+
                             <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8">
                                 <div class="space-y-4">
                                     <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-2 last:border-b-0 gap-4">
@@ -298,6 +338,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="mt-8">
                                 <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse">
                                     Zobrazit celé menu
@@ -376,9 +417,6 @@
                     </div>
                 </div>
             </section>
-
-        </div>
-    </div>
 
         </div>
     </div>

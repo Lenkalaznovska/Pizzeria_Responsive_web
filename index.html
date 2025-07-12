@@ -73,11 +73,9 @@
             position: relative;
             overflow: hidden;
         }
-        .review-card {
-            background-color: white;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='351' height='196' viewBox='0 0 351 196' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M344.331 0.500001C333.331 2.5 320.331 1.5 308.331 1.5C294.331 1.5 278.831 3.5 265.831 4.5C250.331 5.5 232.831 4.5 214.331 4.5C197.331 4.5 178.831 6.5 160.831 8.5C140.331 10.5 117.831 14.5 98.3312 17.5C78.8312 20.5 57.3312 24.5 42.3312 34.5C27.3312 44.5 30.8312 56.5 31.8312 66.5C32.8312 76.5 32.8312 87.5 32.8312 98.5C32.8312 109.5 32.8312 120.5 31.8312 130.5C30.8312 140.5 28.3312 152.5 43.3312 161.5C58.3312 170.5 78.8312 175.5 98.3312 178.5C117.831 181.5 140.331 185.5 160.831 187.5C178.831 189.5 197.331 191.5 214.331 191.5C232.831 191.5 250.331 190.5 265.831 191.5C278.831 192.5 294.331 194.5 308.331 194.5C320.331 194.5 333.331 193.5 344.331 195.5C355.331 197.5 359.831 193.5 361.831 186.5C363.831 179.5 362.831 170.5 362.831 161.5C362.831 152.5 363.831 141.5 362.831 131.5C361.831 121.5 360.831 110.5 360.831 99.5C360.831 88.5 361.831 77.5 362.831 67.5C363.831 57.5 362.831 46.5 358.831 37.5C354.831 28.5 345.831 21.5 334.831 17.5C323.831 13.5 310.331 9.5 297.331 7.5C284.331 5.5 270.831 4.5 255.331 3.5C241.331 2.5 225.831 1.5 211.831 0.500001C197.831 -0.499999 182.331 -0.499999 168.331 0.500001C154.331 1.5 137.831 1.5 122.331 2.5C112.331 3.5 101.331 4.5 91.8312 5.5C87.3312 6.5 82.8312 7.5 79.8312 10C76.8312 12.5 79.8312 15.5 81.3312 18.5' stroke='%23000' stroke-width='0'/%3E%3C/svg%3E");
+        .torn-edges {
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='filter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01 0.005' numOctaves='1' seed='2'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='20'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='black' filter='url(%23filter)'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='filter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01 0.005' numOctaves='1' seed='2'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='20'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='black' filter='url(%23filter)'/%3E%3C/svg%3E");
             -webkit-mask-size: 100% 100%;
             mask-size: 100% 100%;
         }
@@ -330,7 +328,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bg-burgers py-16 lg:py-24 text-white relative">
+            <section class="bg-burgers torn-edges py-16 lg:py-24 text-white relative">
                 <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
                     <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
                     <span class="text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>

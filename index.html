@@ -396,7 +396,7 @@
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-                                    <img :src="imgSrc" alt="Recenze od klienta" class="rounded-lg">
+                                    <img :src="imgSrc" alt="Recenze od spokojených zákazníků" class="rounded-lg">
                                 </div>
                             </div>
                         </div>
@@ -444,9 +444,9 @@
 
         createApp({
             data() {
-                const reviewImages = ['Images/recenze/recenze.jpg'];
+                const reviewImages = ['Images/recenze.jpg'];
                 for (let i = 1; i <= 15; i++) {
-                    reviewImages.push(`Images/recenze/recenze${i}.jpg`);
+                    reviewImages.push(`Images/recenze${i}.jpg`);
                 }
 
                 // Náhodné zamíchání pole obrázků

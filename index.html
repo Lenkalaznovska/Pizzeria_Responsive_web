@@ -17,18 +17,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
-    <style>
-        body,
-        html {
+<style>
+        body, html {
             font-family: 'Montserrat', sans-serif;
             background-color: #FFFFFF;
             overflow-x: hidden;
         }
-
-        .font-cursive {
-            font-family: 'Pacifico', cursive;
-        }
-
+        .font-cursive { font-family: 'Pacifico', cursive; }
         .header-bg-bottom {
             background-color: #9CA3AF;
             -webkit-mask-image: url('Images/pozadi-header.png');
@@ -38,7 +33,6 @@
             -webkit-mask-position: bottom;
             mask-position: bottom;
         }
-
         .header-bg-top {
             background-image: url('Images/pizza.webp');
             background-size: cover;
@@ -46,13 +40,11 @@
             -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
-
         .pricelist-bg-bottom {
             background-image: url('Images/pozadi1.jpg');
             background-size: cover;
             background-position: center;
         }
-
         .pricelist-bg-top {
             background-image: url('Images/sanmarino.webp');
             background-size: cover;
@@ -60,59 +52,48 @@
             -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
             mask-image: linear-gradient(to top, black 85%, transparent 100%);
         }
-
         .square-fix {
             display: inline-block;
             vertical-align: -0.2em;
             font-size: 0.6em;
         }
-
         @keyframes lure-pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-
-            70% {
-                transform: scale(1.08);
-                box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
-
         .animate-lure-pulse {
             animation: lure-pulse 1.8s infinite;
         }
-
         .bg-parchment {
             background-image: url('Images/pozadi.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
-
         .bg-burgers-section {
             background-image: url('Images/pozadi2.jpg');
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
-
+        
         /* === STYLY PRO GALERII RECENZÍ === */
         .swiper-slide {
-            aspect-ratio: 4 / 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            aspect-ratio: 1 / 1;
         }
-
         .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 0.75rem;
+            object-fit: contain;
+            border-radius: 0.5rem;
         }
-
         .review-swiper-button-prev,
         .review-swiper-button-next {
             position: absolute;
@@ -124,28 +105,26 @@
             border-radius: 9999px;
             padding: 0.75rem;
             transition: background-color 0.2s;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
         }
-
         .review-swiper-button-prev:hover,
         .review-swiper-button-next:hover {
             background-color: #c00a15;
         }
-
+        /* Finální pozice šipek */
         .review-swiper-button-prev {
-            left: -10px;
+            left: -1rem;
         }
-
         .review-swiper-button-next {
-            right: -10px;
+            right: -1rem;
         }
-
         .review-swiper-button-prev svg,
         .review-swiper-button-next svg {
             color: white;
             width: 1.5rem;
             height: 1.5rem;
         }
-    </style>
+</style>
 </head>
 
 <body class="bg-white">

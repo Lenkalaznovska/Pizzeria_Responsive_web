@@ -77,17 +77,15 @@
         
         /* === STYLY PRO GALERII RECENZÍ === */
         .swiper-slide {
-            /* Vynutí poměr stran, aby všechny boxy byly stejné */
-            aspect-ratio: 4 / 3; 
+            aspect-ratio: 4 / 3; /* Udržuje poměr stran pro ostrost */
         }
         .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover; /* Ořízne obrázek, aby vyplnil box bez deformace */
-            border-radius: 0.5rem; /* Zaoblené rohy */
+            border-radius: 0.75rem; /* Zaoblené rohy */
         }
-        /* Vlastní šipky, aby byly stejné jako v galerii nahoře */
         .review-swiper-button-prev,
         .review-swiper-button-next {
             position: absolute;
@@ -97,7 +95,7 @@
             cursor: pointer;
             background-color: #E20B18;
             border-radius: 9999px;
-            padding: 0.75rem; /* 12px */
+            padding: 0.75rem;
             transition: background-color 0.2s;
         }
         .review-swiper-button-prev:hover,
@@ -113,8 +111,8 @@
         .review-swiper-button-prev svg,
         .review-swiper-button-next svg {
             color: white;
-            width: 1.5rem;  /* 24px */
-            height: 1.5rem; /* 24px */
+            width: 1.5rem;
+            height: 1.5rem;
         }
 </style>
 </head>
@@ -396,7 +394,7 @@
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-                                    <img :src="imgSrc" alt="Recenze od spokojených zákazníků" class="rounded-lg">
+                                    <img :src="imgSrc" alt="Recenze od klienta" class="rounded-lg">
                                 </div>
                             </div>
                         </div>
@@ -426,101 +424,101 @@
                             </a>
                             <a href="https://www.instagram.com/pizzakladno/" target="_blank" class="transition-transform hover:scale-110">
                                 <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><defs><radialGradient id="ig-grad" r="150%" cx="30%" cy="107%"><stop stop-color="#fdf497" offset="0"/><stop stop-color="#fdf497" offset="0.05"/><stop stop-color="#fd5949" offset="0.45"/><stop stop-color="#d6249f" offset="0.6"/><stop stop-color="#285AEB" offset="0.9"/></radialGradient></defs><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)"/></svg>
-                            </a>
-                            <a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" class="transition-transform hover:scale-110">
-                                <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>TikTok</title><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000000"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                    <div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
-                </div>
-            </section>
-        </div>
-    </div>
+                            </a>
+                            <a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" class="transition-transform hover:scale-110">
+                                <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>TikTok</title><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000000"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                    <div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
+                </div>
+            </section>
+        </div>
+    </div>
 
-    <script>
-        const { createApp } = Vue;
+    <script>
+        const { createApp } = Vue;
 
-        createApp({
-            data() {
-                const reviewImages = ['Images/recenze.jpg'];
-                for (let i = 1; i <= 15; i++) {
-                    reviewImages.push(`Images/recenze${i}.jpg`);
-                }
+        createApp({
+            data() {
+                const reviewImages = ['Images/recenze/recenze.jpg'];
+                for (let i = 1; i <= 15; i++) {
+                    reviewImages.push(`Images/recenze/recenze${i}.jpg`);
+                }
 
-                // Náhodné zamíchání pole obrázků
-                for (let i = reviewImages.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [reviewImages[i], reviewImages[j]] = [reviewImages[j], reviewImages[i]];
-                }
+                // Náhodné zamíchání pole obrázků
+                for (let i = reviewImages.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [reviewImages[i], reviewImages[j]] = [reviewImages[j], reviewImages[i]];
+                }
 
-                return {
-                    navigation: [
-                        { name: 'Menu', href: '#' },
-                        { name: 'Otevírací doba', href: '#' },
-                        { name: 'Galerie', href: '#' },
-                        { name: 'Rezervace', href: '#' },
-                        { name: 'Kontakty', href: '#' },
-                    ],
-                    title: 'Pizzerie San Marino v Kladně',
-                    slogan: 'Vždy čerstvá, vždy z lásky',
-                    description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny',
-                    phone: '+420 604 633 373',
-                    orderText: 'Objednat online',
-                    gallery: {
-                        currentIndex: 0,
-                        images: [
-                            'Images/pizza.webp', 'Images/pizza1.jpg', 'Images/pizza2.jpg',
-                            'Images/detskemenu.jpg', 'Images/pizza3.jpg'
-                        ]
-                    },
-                    frequentOrders: [
-                        { id: 1, name: 'Pizza se sýrem', description: 'Tomatový základ, sýr', price: '172' },
-                        { id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr', price: '176' },
-                        { id: 3, name: 'Pizza Hawai', description: 'Smetanový základ, ananas, šunka', price: '185' },
-                        { id: 4, name: 'Pizza Quattro Formaggi', description: 'Tomatový základ, 4 druhy sýra', price: '190' }
-                    ],
-                    reviewImages: reviewImages
-                }
-            },
-            methods: {
-                nextImage() {
-                    this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
-                },
-                prevImage() {
-                    this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length;
-                },
-                goToImage(index) {
-                    this.gallery.currentIndex = index;
-                }
-            },
-            mounted() {
-                new Swiper('.swiper-container', {
-                    loop: true,
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    },
-                    navigation: {
-                        nextEl: '.review-swiper-button-next',
-                        prevEl: '.review-swiper-button-prev',
-                    },
-                    breakpoints: {
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                    },
-                });
-            }
-        }).mount('#app');
-    </script>
+                return {
+                    navigation: [
+                        { name: 'Menu', href: '#' },
+                        { name: 'Otevírací doba', href: '#' },
+                        { name: 'Galerie', href: '#' },
+                        { name: 'Rezervace', href: '#' },
+                        { name: 'Kontakty', href: '#' },
+                    ],
+                    title: 'Pizzerie San Marino v Kladně',
+                    slogan: 'Vždy čerstvá, vždy z lásky',
+                    description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny',
+                    phone: '+420 604 633 373',
+                    orderText: 'Objednat online',
+                    gallery: {
+                        currentIndex: 0,
+                        images: [
+                            'Images/pizza.webp', 'Images/pizza1.jpg', 'Images/pizza2.jpg',
+                            'Images/detskemenu.jpg', 'Images/pizza3.jpg'
+                        ]
+                    },
+                    frequentOrders: [
+                        { id: 1, name: 'Pizza se sýrem', description: 'Tomatový základ, sýr', price: '172' },
+                        { id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr', price: '176' },
+                        { id: 3, name: 'Pizza Hawai', description: 'Smetanový základ, ananas, šunka', price: '185' },
+                        { id: 4, name: 'Pizza Quattro Formaggi', description: 'Tomatový základ, 4 druhy sýra', price: '190' }
+                    ],
+                    reviewImages: reviewImages
+                }
+            },
+            methods: {
+                nextImage() {
+                    this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
+                },
+                prevImage() {
+                    this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length;
+                },
+                goToImage(index) {
+                    this.gallery.currentIndex = index;
+                }
+            },
+            mounted() {
+                new Swiper('.swiper-container', {
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.review-swiper-button-next',
+                        prevEl: '.review-swiper-button-prev',
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                    },
+                });
+            }
+        }).mount('#app');
+    </script>
 </body>
 </html>

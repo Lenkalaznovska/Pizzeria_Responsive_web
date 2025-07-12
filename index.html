@@ -84,7 +84,6 @@
             border-radius: 0.75rem;
             border: 1px solid #e5e7eb;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            /* Upravený poměr stran pro menší výšku (čtverec) */
             aspect-ratio: 1 / 1;
         }
         .swiper-slide img {
@@ -111,12 +110,12 @@
         .review-swiper-button-next:hover {
             background-color: #c00a15;
         }
-        /* Pozice šipek mimo kontejner s obrázky */
+        /* Pozice šipek uvnitř kontejneru */
         .review-swiper-button-prev {
-            left: -1rem;
+            left: 1rem;
         }
         .review-swiper-button-next {
-            right: -1rem;
+            right: 1rem;
         }
         .review-swiper-button-prev svg,
         .review-swiper-button-next svg {
@@ -400,13 +399,11 @@
                         <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
                     </div>
                     
-                    <div class="relative">
-                        <div class="max-w-[85%] mx-auto">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-                                        <img :src="imgSrc" alt="Recenze od klienta">
-                                    </div>
+                    <div class="max-w-[80%] mx-auto relative overflow-hidden rounded-2xl">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+                                    <img :src="imgSrc" alt="Recenze od klienta">
                                 </div>
                             </div>
                         </div>

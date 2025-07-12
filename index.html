@@ -84,14 +84,14 @@
             border-radius: 0.75rem;
             border: 1px solid #e5e7eb;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            /* Vynucení jednotného poměru stran pro všechny slidy */
-            aspect-ratio: 9 / 16;
+            /* Upravený poměr stran pro menší výšku (čtverec) */
+            aspect-ratio: 1 / 1;
         }
         .swiper-slide img {
             display: block;
             width: 100%;
-            height: 100%; /* Obrázek vyplní výšku slidu */
-            object-fit: contain; /* Zobrazí celý obrázek bez ořezání, přizpůsobí se kontejneru */
+            height: 100%;
+            object-fit: contain;
             border-radius: 0.5rem;
         }
         .review-swiper-button-prev,
@@ -111,12 +111,12 @@
         .review-swiper-button-next:hover {
             background-color: #c00a15;
         }
-        /* Pozice šipek uvnitř kontejneru */
+        /* Pozice šipek mimo kontejner s obrázky */
         .review-swiper-button-prev {
-            left: 1rem;
+            left: -1rem;
         }
         .review-swiper-button-next {
-            right: 1rem;
+            right: -1rem;
         }
         .review-swiper-button-prev svg,
         .review-swiper-button-next svg {
@@ -400,11 +400,13 @@
                         <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
                     </div>
                     
-                    <div class="max-w-[70%] mx-auto relative overflow-hidden">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-                                    <img :src="imgSrc" alt="Recenze od klienta">
+                    <div class="relative">
+                        <div class="max-w-[85%] mx-auto">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+                                        <img :src="imgSrc" alt="Recenze od klienta">
+                                    </div>
                                 </div>
                             </div>
                         </div>

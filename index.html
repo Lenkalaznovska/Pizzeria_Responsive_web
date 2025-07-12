@@ -77,15 +77,14 @@
         
         /* === STYLY PRO GALERII RECENZÍ === */
         .swiper-container-reviews {
-            /* Kontejner pro Swiper, který má nastavené přetékání na skryté */
             overflow: hidden;
-            border-radius: 1rem; /* Zaoblení rohů, aby odpovídalo slidům */
+            border-radius: 1rem;
         }
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #FFFFFF; /* Bílé pozadí karty */
+            background-color: #FFFFFF;
             border-radius: 0.75rem;
             border: 1px solid #e5e7eb;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -115,12 +114,12 @@
         .review-swiper-button-next:hover {
             background-color: #c00a15;
         }
-        /* Pozice šipek mimo kontejner s obrázky */
+        /* Pozice šipek upravena - blíže k obrázkům */
         .review-swiper-button-prev {
-            left: -2rem;
+            left: -1rem;
         }
         .review-swiper-button-next {
-            right: -2rem;
+            right: -1rem;
         }
         .review-swiper-button-prev svg,
         .review-swiper-button-next svg {
@@ -274,7 +273,7 @@
                 
                 <div class="relative">
                     <div class="max-w-[80%] mx-auto">
-                         <div class="swiper-container swiper-container-reviews">
+                        <div class="swiper-container swiper-container-reviews">
                             <div class="swiper-wrapper">
                                 <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
                                     <img :src="imgSrc" alt="Recenze od klienta">

@@ -75,25 +75,24 @@
             background-repeat: no-repeat;
         }
         
-        /* === NOVÉ A UPRAVENÉ STYLY PRO GALERII RECENZÍ === */
+        /* === STYLY PRO GALERII RECENZÍ === */
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f9fafb; /* Světlé pozadí pro každý slide */
-            border-radius: 0.75rem; /* Zaoblené rohy */
-            padding: 0.5rem; /* Malý vnitřní okraj */
-            border: 1px solid #e5e7eb; /* Jemný rámeček */
-            min-height: 250px; /* Minimální výška, aby layout nebyl rozbitý */
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Jemný stín */
+            background-color: #f9fafb;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            /* Vynucení jednotného poměru stran pro všechny slidy */
+            aspect-ratio: 9 / 16;
         }
         .swiper-slide img {
             display: block;
             width: 100%;
-            height: auto; /* Automatická výška pro zachování poměru stran */
-            max-height: 400px; /* Maximální výška, aby obrázky nebyly příliš velké */
-            object-fit: contain; /* Zobrazí celý obrázek bez ořezání */
-            border-radius: 0.5rem; /* Lehce zaoblené rohy obrázku */
+            height: 100%; /* Obrázek vyplní výšku slidu */
+            object-fit: contain; /* Zobrazí celý obrázek bez ořezání, přizpůsobí se kontejneru */
+            border-radius: 0.5rem;
         }
         .review-swiper-button-prev,
         .review-swiper-button-next {
@@ -112,20 +111,12 @@
         .review-swiper-button-next:hover {
             background-color: #c00a15;
         }
+        /* Pozice šipek uvnitř kontejneru */
         .review-swiper-button-prev {
-            left: -1rem;
+            left: 1rem;
         }
         .review-swiper-button-next {
-            right: -1rem;
-        }
-        /* Lepší pozice šipek na menších obrazovkách */
-        @media (max-width: 640px) {
-            .review-swiper-button-prev {
-                left: -5px;
-            }
-            .review-swiper-button-next {
-                right: -5px;
-            }
+            right: 1rem;
         }
         .review-swiper-button-prev svg,
         .review-swiper-button-next svg {
@@ -409,7 +400,7 @@
                         <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
                     </div>
                     
-                    <div class="relative px-8 sm:px-12">
+                    <div class="max-w-[70%] mx-auto relative overflow-hidden">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
@@ -428,10 +419,10 @@
                             </svg>
                         </div>
                     </div>
+
                 </div>
             </section>
             
-
             <section class="bg-white py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
                     <div class="text-center mb-12">
@@ -453,7 +444,6 @@
                     <div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
                 </div>
             </section>
-        </div>
     </div>
 
     <script>

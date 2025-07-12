@@ -348,6 +348,55 @@
                 </div>
             </section>
             
+            <section class="bg-gray-100 py-16 lg:py-24">
+                <div class="container mx-auto px-6 md:px-12 lg:px-20">
+                    <div class="text-center mb-12">
+                        <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Recenze</p>
+                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
+                    </div>
+                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-12 text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#2c65a8" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#fff" d="M30.222 17.29l-2.022.001c-.722 0-1.021.343-1.021.848v1.446h3.021l-.484 2.895h-2.537V34h-3.863V22.48h-2.639v-2.895h2.639v-1.74c0-2.334 1.258-3.834 3.931-3.834h2.296v2.894z"></path></svg>
+                            <span class="font-bold">FIRMY.CZ</span>
+                            <span>4.2 Hodnocení</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="#d70f64" d="M128 0C57.308 0 0 57.308 0 128c0 70.691 57.308 128 128 128 70.691 0 128-57.309 128-128C256 57.308 198.691 0 128 0z"></path><path fill="#fff" d="M153.642 73.023c-13.99-1.92-23.2 2.703-29.695 10.435l-2.274 2.684-2.273-2.684c-6.494-7.732-15.704-12.355-29.695-10.435C72.11 75.14 60.852 90.72 61.02 108.22c.15 15.75 10.15 30.233 24.364 43.342l39.01 36.316c1.157 1.076 3.078 1.076 4.235 0l39.01-36.316c14.214-13.108 24.214-27.592 24.364-43.342.167-17.5-11.09-33.08-28.69-35.2z"></path></svg>
+                            <span class="font-bold">foodora</span>
+                            <span>1700+ Hodnocení</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#34A853" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#FBBC05" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#EA4335" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.574l6.19,5.238C39.99,35.591,44,29.891,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                            <span class="font-bold">Google</span>
+                            <span>4.0 Hodnocení</span>
+                        </div>
+                    </div>
+    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                        <div v-for="review in reviews" :key="review.author" class="review-card flex flex-col h-full">
+                            <p class="text-gray-700 leading-relaxed flex-grow" v-html="review.text"></p>
+                            <div class="flex items-center gap-3 mt-auto pt-6">
+                                <img v-if="review.img" :src="review.img" :alt="review.author" class="w-12 h-12 rounded-full object-cover">
+                                <div v-else class="flex items-center justify-center w-12 h-12 bg-gray-200 text-gray-600 font-bold text-xl rounded-full">
+                                    {{ review.author.charAt(0) }}
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">{{ review.author }}</p>
+                                    <p class="text-sm text-gray-500">{{ review.source }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="text-center mt-12">
+                        <a href="#" class="inline-flex items-center gap-3 bg-white text-gray-700 font-semibold px-6 py-3 rounded-full border border-gray-300 hover:bg-gray-50 transition-colors shadow-sm">
+                            <svg class="w-6 h-6" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#34A853" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#FBBC05" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#EA4335" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.574l6.19,5.238C39.99,35.591,44,29.891,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                            <span>Zobrazit více referencí</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             <section class="bg-white py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
                     <div class="text-center mb-12">
@@ -402,6 +451,14 @@
                         { id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr', price: '176' },
                         { id: 3, name: 'Pizza Hawai', description: 'Smetanový základ, ananas, šunka', price: '185' },
                         { id: 4, name: 'Pizza Quattro Formaggi', description: 'Tomatový základ, 4 druhy sýra', price: '190' }
+                    ],
+                    reviews: [
+                        { text: 'Včera jsme si u Vás dali k obědu ”pizza koláč”, jak já tomu s oblibou říkám a pochutnali jsme si. Nepřijde mi, že by se na Vaší pizze něco změnilo, je stále stejně dobrá, jako před lety. Kdo si zde chce dát pizzu, nečekejte italskou klasiku. Každému chutnat nebude, to dá rozum. Ale podle kurýrů a počtu lidí, kteří si pro pizzu chodili, má stále svoje fanoušky. I my k nim patříme.', author: 'Lucie Bubeníková', source: 'Google recenze', img: null },
+                        { text: 'Můj hodně dlouhodobý názor je, že je to nejlepší pizza v širokém okolí.', author: 'Tomas Kutilek', source: 'Google recenze', img: 'Images/tomas.png' },
+                        { text: 'Super pizza. Velmi příjemná obsluha. Doporučujeme. 🤗', author: 'TG 70', source: 'Google recenze', img: 'Images/tg70.png' },
+                        { text: 'Pravidelně chodíme s kamarádkou na nejlepší pizzu! Je to taková srdcovka a slečna servírka vždy skvělá, ochotná a milá. ❤', author: 'kleinver 178', source: 'Google recenze', img: 'Images/kleinver.png' },
+                        { text: 'Měla jsem zde pizzu, byla výborná byť trochu mastnější. Slečna co nás obsluhovala byla skvělá a milá. Docela jsme se nasmály. Děkuji, přijdu znovu 🥹😂', author: 'Veronika Vršeská', source: 'Google recenze', img: 'Images/veronika.png' },
+                        { text: 'Nejlepší pizza na Kladně, a úžasná obsluha🫶🏻', author: 'Klara Liskova', source: 'Google recenze', img: null },
                     ]
                 }
             },
@@ -417,4 +474,6 @@
                 }
             }
         }).mount('#app');
-    </script></body></html>
+    </script>
+</body>
+</html>

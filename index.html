@@ -74,18 +74,47 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
-        /* Styly pro šipky galerie */
-        .swiper-button-next, .swiper-button-prev {
-            color: #E20B18;
-        }
+        
+        /* === STYLY PRO GALERII RECENZÍ === */
         .swiper-slide {
-            height: 450px; /* Jednotná výška pro všechny slidy */
+            /* Vynutí poměr stran, aby všechny boxy byly stejné */
+            aspect-ratio: 4 / 3; 
         }
         .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Zajistí, že obrázek vyplní prostor bez deformace */
+            object-fit: cover; /* Ořízne obrázek, aby vyplnil box bez deformace */
+            border-radius: 0.5rem; /* Zaoblené rohy */
+        }
+        /* Vlastní šipky, aby byly stejné jako v galerii nahoře */
+        .review-swiper-button-prev,
+        .review-swiper-button-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            cursor: pointer;
+            background-color: #E20B18;
+            border-radius: 9999px;
+            padding: 0.75rem; /* 12px */
+            transition: background-color 0.2s;
+        }
+        .review-swiper-button-prev:hover,
+        .review-swiper-button-next:hover {
+            background-color: #c00a15;
+        }
+        .review-swiper-button-prev {
+            left: -10px;
+        }
+        .review-swiper-button-next {
+            right: -10px;
+        }
+        .review-swiper-button-prev svg,
+        .review-swiper-button-next svg {
+            color: white;
+            width: 1.5rem;  /* 24px */
+            height: 1.5rem; /* 24px */
         }
 </style>
 </head>
@@ -258,7 +287,7 @@
                             </a>
                         </div>
                         <div class="flex flex-col items-center">
-                            <div class="relative w-full max-w-md bg-black/5 rounded-2xl shadow-2xl aspect-[4/3]">
+                            <div class="relative w-full max-w-md">
                                 <img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl">
                                 <button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
@@ -363,16 +392,24 @@
                         <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
                     </div>
                     
-                    <div class="relative">
+                    <div class="relative px-12">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-                                    <img :src="imgSrc" alt="Recenze od spokojených zakazníků" class="rounded-lg">
+                                    <img :src="imgSrc" alt="Recenze od klienta" class="rounded-lg">
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
+                        <div class="review-swiper-button-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="review-swiper-button-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -407,9 +444,15 @@
 
         createApp({
             data() {
-                const reviewImages = ['Images/recenze.jpg'];
+                const reviewImages = ['Images/recenze/recenze.jpg'];
                 for (let i = 1; i <= 15; i++) {
-                    reviewImages.push(`Images/recenze${i}.jpg`);
+                    reviewImages.push(`Images/recenze/recenze${i}.jpg`);
+                }
+
+                // Náhodné zamíchání pole obrázků
+                for (let i = reviewImages.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [reviewImages[i], reviewImages[j]] = [reviewImages[j], reviewImages[i]];
                 }
 
                 return {
@@ -457,9 +500,13 @@
                     loop: true,
                     slidesPerView: 1,
                     spaceBetween: 20,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
                     navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.review-swiper-button-next',
+                        prevEl: '.review-swiper-button-prev',
                     },
                     breakpoints: {
                         640: {

@@ -1,382 +1,478 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzerie San Marino v Kladně</title>
+<!DOCTYPE html> 
+ <html lang="cs"> 
+ <head> 
+     <meta charset="UTF-8"> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+     <title>Pizzerie San Marino v Kladně</title> 
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <script src="https://cdn.tailwindcss.com"></script> 
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.googleapis.com"> 
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
 
-<style>
-        body, html {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #FFFFFF;
-            overflow-x: hidden;
-        }
-        .font-cursive { font-family: 'Pacifico', cursive; }
-        .header-bg-bottom {
-            background-color: #9CA3AF;
-            -webkit-mask-image: url('Images/pozadi-header.png');
-            mask-image: url('Images/pozadi-header.png');
-            -webkit-mask-size: cover;
-            mask-size: cover;
-            -webkit-mask-position: bottom;
-            mask-position: bottom;
-        }
-        .header-bg-top {
-            background-image: url('Images/pizza.webp');
-            background-size: cover;
-            background-position: center;
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        }
-        .pricelist-bg-bottom {
-            background-image: url('Images/pozadi1.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .pricelist-bg-top {
-            background-image: url('Images/sanmarino.webp');
-            background-size: cover;
-            background-position: center;
-            -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
-            mask-image: linear-gradient(to top, black 85%, transparent 100%);
-        }
-        .square-fix {
-            display: inline-block;
-            vertical-align: -0.2em;
-            font-size: 0.6em;
-        }
-        @keyframes lure-pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-            70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-        .animate-lure-pulse {
-            animation: lure-pulse 1.8s infinite;
-        }
-        .bg-parchment {
-            background-image: url('Images/pozadi.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-        }
-        .bg-burgers {
-            background-image: url('Images/pozadi2.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-</style>
-</head>
-<body class="bg-white">
+ <style> 
+         body, html { 
+             font-family: 'Montserrat', sans-serif; 
+             background-color: #FFFFFF; 
+             overflow-x: hidden; 
+         } 
+         .font-cursive { font-family: 'Pacifico', cursive; } 
+         .header-bg-bottom { 
+             background-color: #9CA3AF; 
+             -webkit-mask-image: url('Images/pozadi-header.png'); 
+             mask-image: url('Images/pozadi-header.png'); 
+             -webkit-mask-size: cover; 
+             mask-size: cover; 
+             -webkit-mask-position: bottom; 
+             mask-position: bottom; 
+         } 
+         .header-bg-top { 
+             background-image: url('Images/pizza.webp'); 
+             background-size: cover; 
+             background-position: center; 
+             -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); 
+             mask-image: linear-gradient(to bottom, black 80%, transparent 100%); 
+         } 
+         .pricelist-bg-bottom { 
+             background-image: url('Images/pozadi1.jpg'); 
+             background-size: cover; 
+             background-position: center; 
+         } 
+         .pricelist-bg-top { 
+             background-image: url('Images/sanmarino.webp'); 
+             background-size: cover; 
+             background-position: center; 
+             -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%); 
+             mask-image: linear-gradient(to top, black 85%, transparent 100%); 
+         } 
+         .square-fix { 
+             display: inline-block; 
+             vertical-align: -0.2em; 
+             font-size: 0.6em; 
+         } 
+         @keyframes lure-pulse { 
+             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 
+             70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); } 
+             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } 
+         } 
+         .animate-lure-pulse { 
+             animation: lure-pulse 1.8s infinite; 
+         } 
+         .bg-parchment { 
+             background-image: url('Images/pozadi.png'); 
+             background-size: 100% 100%; 
+             background-repeat: no-repeat; 
+         } 
+         .bg-burgers { 
+             background-image: url('Images/pozadi2.jpg'); 
+             background-size: cover; 
+             background-position: center; 
+             position: relative; 
+             overflow: hidden; 
+         } 
+         .review-card { 
+             background-color: white; 
+             padding: 2rem; 
+             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07); 
+             -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='351' height='196' viewBox='0 0 351 196' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M344.331 0.500001C333.331 2.5 320.331 1.5 308.331 1.5C294.331 1.5 278.831 3.5 265.831 4.5C250.331 5.5 232.831 4.5 214.331 4.5C197.331 4.5 178.831 6.5 160.831 8.5C140.331 10.5 117.831 14.5 98.3312 17.5C78.8312 20.5 57.3312 24.5 42.3312 34.5C27.3312 44.5 30.8312 56.5 31.8312 66.5C32.8312 76.5 32.8312 87.5 32.8312 98.5C32.8312 109.5 32.8312 120.5 31.8312 130.5C30.8312 140.5 28.3312 152.5 43.3312 161.5C58.3312 170.5 78.8312 175.5 98.3312 178.5C117.831 181.5 140.331 185.5 160.831 187.5C178.831 189.5 197.331 191.5 214.331 191.5C232.831 191.5 250.331 190.5 265.831 191.5C278.831 192.5 294.331 194.5 308.331 194.5C320.331 194.5 333.331 193.5 344.331 195.5C355.331 197.5 359.831 193.5 361.831 186.5C363.831 179.5 362.831 170.5 362.831 161.5C362.831 152.5 363.831 141.5 362.831 131.5C361.831 121.5 360.831 110.5 360.831 99.5C360.831 88.5 361.831 77.5 362.831 67.5C363.831 57.5 362.831 46.5 358.831 37.5C354.831 28.5 345.831 21.5 334.831 17.5C323.831 13.5 310.331 9.5 297.331 7.5C284.331 5.5 270.831 4.5 255.331 3.5C241.331 2.5 225.831 1.5 211.831 0.500001C197.831 -0.499999 182.331 -0.499999 168.331 0.500001C154.331 1.5 137.831 1.5 122.331 2.5C112.331 3.5 101.331 4.5 91.8312 5.5C87.3312 6.5 82.8312 7.5 79.8312 10C76.8312 12.5 79.8312 15.5 81.3312 18.5' stroke='%23000' stroke-width='0'/%3E%3C/svg%3E"); 
+             -webkit-mask-size: 100% 100%; 
+             mask-size: 100% 100%; 
+         } 
+ </style> 
+ </head> 
+ <body class="bg-white"> 
 
-    <div id="app" class="relative bg-white">
-        <div class="relative">
-            <div class="absolute inset-0 header-bg-bottom z-0"></div>
-            <div class="absolute inset-0 bg-white/40 z-[5]"></div>
-            <div class="header-bg-top relative w-full pb-20 z-10 bg-transparent">
-                <nav class="absolute top-6 left-0 w-full z-20">
-                    <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center">
-                        <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20"></a>
-                        <div class="flex items-center">
-                            <div class="hidden md:flex items-center gap-x-8 text-white font-medium">
-                                <a v-for="item in navigation" :key="item.name" :href="item.href" class="hover:text-gray-300 transition-colors">{{ item.name }}</a>
-                            </div>
-                            <div class="flex items-center gap-x-6 ml-8">
-                                    <a :href="'tel:' + phone.replace(/\s/g, '')" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
-                                        <span>{{ phone }}</span>
-                                    </a>
-                                <a href="#" class="hidden lg:block text-white font-bold text-lg border-b-2 border-white pb-1 hover:text-gray-300 transition-colors"><span>{{ orderText }}</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-                <div class="absolute inset-0" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);"></div>
-                <main class="relative z-10 flex flex-col items-center justify-center min-h-[85vh] text-white">
-                    <div class="flex flex-col items-center text-center gap-y-8 pt-28">
-                        <div class="bg-white/40 rounded-full flex items-center gap-x-2 px-6 py-3">
-                            <span class="text-lg font-semibold text-white">Jsme TOP 4. Pizzerie v Kladně!🏅</span>
-                        </div>
-                        <div class="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 py-4">
-                            <h1 class="text-5xl md:text-6xl font-black uppercase tracking-wide">
-                                <span>{{ title }}</span><span class="square-fix">▪</span>
-                            </h1>
-                            <h2 class="text-5xl md:text-6xl font-black uppercase tracking-wide">
-                                <span>{{ slogan }}</span><span class="square-fix">▪</span>
-                            </h2>
-                        </div>
-                        <p class="text-lg md:text-xl font-semibold">{{ description }}</p>
-                        <div class="flex flex-col sm:flex-row items-center gap-10 pt-4">
-                            <a :href="'tel:' + phone.replace(/\s/g, '')" class="animate-lure-pulse bg-[#E20B18] text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
-                                <span>{{ phone }}</span>
-                            </a>
-                            <a href="#" class="animate-lure-pulse border-2 border-white text-white font-bold text-lg rounded-full px-8 py-4 w-full sm:w-auto justify-center">
-                                <span>{{ orderText }}</span>
-                            </a>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-        <section class="relative z-20 -mt-16 w-full flex justify-center">
-            <div class="bg-white text-gray-800 rounded-2xl shadow-xl px-10 py-5 flex flex-wrap items-center justify-center gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1">
-                <div class="flex items-center gap-x-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                        <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                        <path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" />
-                    </svg>
-                    <div class="flex flex-col text-left">
-                        <span class="font-black uppercase text-lg tracking-wider">Rozvoz Jídla</span>
-                        <span class="text-gray-500 text-base">11:00 - 21:15 <a href="#" class="text-[#E20B18] underline font-semibold">Ceník</a></span>
-                    </div>
-                </div>
-                <div class="flex items-center gap-x-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                        <path d="M12 12l3.5 0" />
-                        <path d="M12 7v5" />
-                    </svg>
-                    <div class="flex flex-col text-left">
-                        <span class="font-black uppercase text-lg tracking-wider">Otevírací doba</span>
-                        <span class="text-gray-500 text-base">10:45 - 21:15</span>
-                    </div>
-                </div>
-                <div class="flex items-center gap-x-4">
-                       <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                             <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" />
-                             <path d="M16 3v4" />
-                             <path d="M8 3v4" />
-                             <path d="M4 11h16" />
-                             <path d="M15 19l2 2l4 -4" />
-                           </svg>
-                    <div class="flex flex-col text-left">
-                        <span class="font-black uppercase text-lg tracking-wider">Rezervace</span>
-                        <a :href="'tel:' + phone.replace(/\s/g, '')" class="text-[#E20B18] underline font-semibold text-base">Rezervovat místo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="pt-24 pb-12 bg-white">
-            <div class="container mx-auto px-6 md:px-12 lg:px-20">
-                <div class="text-left mb-16">
-                    <p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Naše dobroty</p>
-                    <h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na čem si u nás pochutnáš?</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-[34px]">
-                    <div class="relative bg-[#017D4D] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
-                        <div>
-                            <h3 class="text-white text-4xl font-black uppercase">Pizzy</h3>
-                            <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
-                                Zobrazit nabídku
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                        <img src="Images/pizza1.jpg" alt="Pizzy" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
-                    </div>
-                    <div class="relative bg-[#E20B18] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
-                        <div>
-                            <h3 class="text-white text-4xl font-black uppercase">Burgery</h3>
-                            <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
-                                Zobrazit nabídku
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                        <img src="Images/burger.jpg" alt="Burgery" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
-                    </div>
-                    <div class="relative bg-[#FCDFA3] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden">
-                        <div>
-                            <h3 class="text-gray-900 text-4xl font-black uppercase">Kuřecí maso</h3>
-                            <a href="#" class="text-gray-900 mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline">
-                                Zobrazit nabídku
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                        <img src="Images/wingit.jpg" alt="Kuřecí křídla" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="relative">
-            <section class="bg-parchment pt-20 pb-16 relative z-10">
-                <div class="container mx-auto px-12 md:px-16 lg:px-24">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Tradice již od roku 1994</p>
-                            <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-gray-900">PROČ PIZZA U NÁS?</h2>
-                            <p class="mt-6 text-gray-700 leading-relaxed">
-                                Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů.
-                            </p>
-                            <div class="mt-8 space-y-4">
-                                <div class="flex items-start gap-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="text-gray-800 font-medium">Těsto je nadýchané s křupavým okrajem.</span>
-                                </div>
-                                <div class="flex items-start gap-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="text-gray-800 font-medium">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
-                                </div>
-                                <div class="flex items-start gap-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="text-gray-800 font-medium">Bohatá porce kvalitních surovin.</span>
-                                </div>
-                            </div>
-                            <a href="#" class="inline-block mt-10 border border-gray-800 bg-[#FDF6E3] rounded-full px-10 py-4 text-gray-900 font-bold hover:bg-[#faeed9] transition-colors">
-                                Vytvořit vlastní pizzu
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="relative w-full max-w-md bg-black/5 rounded-2xl shadow-2xl aspect-[4/3]">
-                                <img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl">
-                                <button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                                </button>
-                                <button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                                </button>
-                            </div>
-                            <div class="mt-6 flex items-center gap-x-3">
-                                <template v-for="(image, index) in gallery.images" :key="index">
-                                    <button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-[#E20B18] hover:bg-[#e20b18]/20']"></button>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="relative -mt-16 z-0">
-                <div class="relative">
-                    <div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
-                    <div class="absolute inset-0 pricelist-bg-top z-10"></div>
-                    <div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
-                    <section class="relative z-20 bg-transparent">
-                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
-                            <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
-                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
-                            <div class="flex justify-center flex-wrap gap-4 my-8">
-                                <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
-                            </div>
-                            <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8">
-                                <div class="space-y-4">
-                                    <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-2 last:border-b-0 gap-4">
-                                        <div class="flex-grow text-left">
-                                            <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p>
-                                            <p class="text-sm text-gray-300">{{ item.description }}</p>
-                                        </div>
-                                        <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end">
-                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
-                                            <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button>
-                                            <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-8">
-                                <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse">
-                                    Zobrazit celé menu
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <section class="bg-burgers py-16 lg:py-24 text-white relative">
-                <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
-                    <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
-                    <span class="text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>
-                </div>
-                <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-                    <div class="text-center">
-                        <p class="font-cursive text-4xl text-white" style="position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
-                        <h2 class="mt-2 text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso,<br>které si zamiluješ</h2>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
-                        <img src="Images/burger.jpg" alt="Burger na talíři" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="Images/burger1.jpg" alt="Burger zblízka" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="Images/wingit1.webp" alt="Kuřecí stripsy s omáčkou" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="Images/wingit2.jpg" alt="Burger s batátovými hranolky" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    </div>
-                </div>
-            </section>
-            <section class="bg-white py-16 lg:py-24">
-                <div class="container mx-auto px-6 md:px-12 lg:px-20">
-                    <div class="text-center mb-12">
-                        <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Zůstaň v obraze</p>
-                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJ NÁS ONLINE</h2>
-                    </div>
-                    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                    <div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
-                </div>
-            </section>
-        </div>
-    </div>
+     <div id="fb-root"></div> 
+     <script defer crossorigin="anonymous" src="https://connect.facebook.net/cs_CZ/sdk.js"></script> 
 
-    <script>
-        const { createApp } = Vue;
+     <div id="app" class="relative bg-white"> 
+         <div class="relative"> 
+             <div class="absolute inset-0 header-bg-bottom z-0"></div> 
+             <div class="absolute inset-0 bg-white/40 z-[5]"></div> 
+             <div class="header-bg-top relative w-full pb-20 z-10 bg-transparent"> 
+                 <nav class="absolute top-6 left-0 w-full z-20"> 
+                     <div class="container mx-auto px-10 lg:px-20 py-2 flex justify-between items-center"> 
+                         <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20"></a> 
+                         <div class="flex items-center"> 
+                             <div class="hidden md:flex items-center gap-x-8 text-white font-medium"> 
+                                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="hover:text-gray-300 transition-colors">{{ item.name }}</a> 
+                             </div> 
+                             <div class="flex items-center gap-x-6 ml-8"> 
+                                     <a :href="'tel:' + phone.replace(/\s/g, '')" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3"> 
+                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg> 
+                                         <span>{{ phone }}</span> 
+                                     </a> 
+                                 <a href="#" class="hidden lg:block text-white font-bold text-lg border-b-2 border-white pb-1 hover:text-gray-300 transition-colors"><span>{{ orderText }}</span></a> 
+                             </div> 
+                         </div> 
+                     </div> 
+                 </nav> 
+                 <div class="absolute inset-0" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);"></div> 
+                 <main class="relative z-10 flex flex-col items-center justify-center min-h-[85vh] text-white"> 
+                     <div class="flex flex-col items-center text-center gap-y-8 pt-28"> 
+                         <div class="bg-white/40 rounded-full flex items-center gap-x-2 px-6 py-3"> 
+                             <span class="text-lg font-semibold text-white">Jsme TOP 4. Pizzerie v Kladně!🏅</span> 
+                         </div> 
+                         <div class="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 py-4"> 
+                             <h1 class="text-5xl md:text-6xl font-black uppercase tracking-wide"> 
+                                 <span>{{ title }}</span><span class="square-fix">▪</span> 
+                             </h1> 
+                             <h2 class="text-5xl md:text-6xl font-black uppercase tracking-wide"> 
+                                 <span>{{ slogan }}</span><span class="square-fix">▪</span> 
+                             </h2> 
+                         </div> 
+                         <p class="text-lg md:text-xl font-semibold">{{ description }}</p> 
+                         <div class="flex flex-col sm:flex-row items-center gap-10 pt-4"> 
+                             <a :href="'tel:' + phone.replace(/\s/g, '')" class="animate-lure-pulse bg-[#E20B18] text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center"> 
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg> 
+                                 <span>{{ phone }}</span> 
+                             </a> 
+                             <a href="#" class="animate-lure-pulse border-2 border-white text-white font-bold text-lg rounded-full px-8 py-4 w-full sm:w-auto justify-center"> 
+                                 <span>{{ orderText }}</span> 
+                             </a> 
+                         </div> 
+                     </div> 
+                 </main> 
+             </div> 
+         </div> 
+         <section class="relative z-20 -mt-16 w-full flex justify-center"> 
+             <div class="bg-white text-gray-800 rounded-2xl shadow-xl px-10 py-5 flex flex-wrap items-center justify-center gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1"> 
+                 <div class="flex items-center gap-x-4"> 
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> 
+                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                         <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> 
+                         <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> 
+                         <path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /> 
+                     </svg> 
+                     <div class="flex flex-col text-left"> 
+                         <span class="font-black uppercase text-lg tracking-wider">Rozvoz Jídla</span> 
+                         <span class="text-gray-500 text-base">11:00 - 21:15 <a href="#" class="text-[#E20B18] underline font-semibold">Ceník</a></span> 
+                     </div> 
+                 </div> 
+                 <div class="flex items-center gap-x-4"> 
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> 
+                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                         <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> 
+                         <path d="M12 12l3.5 0" /> 
+                         <path d="M12 7v5" /> 
+                     </svg> 
+                     <div class="flex flex-col text-left"> 
+                         <span class="font-black uppercase text-lg tracking-wider">Otevírací doba</span> 
+                         <span class="text-gray-500 text-base">10:45 - 21:15</span> 
+                     </div> 
+                 </div> 
+                 <div class="flex items-center gap-x-4"> 
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> 
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                           <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" /> 
+                           <path d="M16 3v4" /> 
+                           <path d="M8 3v4" /> 
+                           <path d="M4 11h16" /> 
+                           <path d="M15 19l2 2l4 -4" /> 
+                         </svg> 
+                     <div class="flex flex-col text-left"> 
+                         <span class="font-black uppercase text-lg tracking-wider">Rezervace</span> 
+                         <a :href="'tel:' + phone.replace(/\s/g, '')" class="text-[#E20B18] underline font-semibold text-base">Rezervovat místo</a> 
+                     </div> 
+                 </div> 
+             </div> 
+         </section> 
+         <section class="pt-24 pb-12 bg-white"> 
+             <div class="container mx-auto px-6 md:px-12 lg:px-20"> 
+                 <div class="text-left mb-16"> 
+                     <p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Naše dobroty</p> 
+                     <h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na čem si u nás pochutnáš?</h2> 
+                 </div> 
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-[34px]"> 
+                     <div class="relative bg-[#017D4D] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden"> 
+                         <div> 
+                             <h3 class="text-white text-4xl font-black uppercase">Pizzy</h3> 
+                             <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline"> 
+                                 Zobrazit nabídku 
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg> 
+                             </a> 
+                         </div> 
+                         <img src="Images/pizza1.jpg" alt="Pizzy" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover"> 
+                     </div> 
+                     <div class="relative bg-[#E20B18] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden"> 
+                         <div> 
+                             <h3 class="text-white text-4xl font-black uppercase">Burgery</h3> 
+                             <a href="#" class="text-white mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline"> 
+                                 Zobrazit nabídku 
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg> 
+                             </a> 
+                         </div> 
+                         <img src="Images/burger.jpg" alt="Burgery" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover"> 
+                     </div> 
+                     <div class="relative bg-[#FCDFA3] rounded-3xl p-8 h-[478px] flex flex-col justify-start overflow-hidden"> 
+                         <div> 
+                             <h3 class="text-gray-900 text-4xl font-black uppercase">Kuřecí maso</h3> 
+                             <a href="#" class="text-gray-900 mt-4 inline-flex items-center gap-x-2 font-semibold hover:underline"> 
+                                 Zobrazit nabídku 
+                       _Burgery
+                            </a> 
+                         </div> 
+                         <img src="Images/wingit.jpg" alt="Kuřecí křídla" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover"> 
+                     </div> 
+                 </div> 
+             </div> 
+         </section> 
+         <div class="relative"> 
+             <section class="bg-parchment pt-20 pb-16 relative z-10"> 
+                 <div class="container mx-auto px-12 md:px-16 lg:px-24"> 
+                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"> 
+                         <div> 
+                             <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Tradice již od roku 1994</p> 
+                             <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-gray-900">PROČ PIZZA U NÁS?</h2> 
+                             <p class="mt-6 text-gray-700 leading-relaxed"> 
+                                 Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů. 
+                             </p> 
+                             <div class="mt-8 space-y-4"> 
+                                 <div class="flex items-start gap-x-3"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"> 
+                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /> 
+                                     </svg> 
+                                     <span class="text-gray-800 font-medium">Těsto je nadýchané s křupavým okrajem.</span> 
+                                 </div> 
+                                 <div class="flex items-start gap-x-3"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"> 
+                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /> 
+                                     </svg> 
+                                     <span class="text-gray-800 font-medium">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span> 
+                                 </div> 
+                                 <div class="flex items-start gap-x-3"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"> 
+                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /> 
+                                     </svg> 
+                                     <span class="text-gray-800 font-medium">Bohatá porce kvalitních surovin.</span> 
+                                 </div> 
+                             </div> 
+                             <a href="#" class="inline-block mt-10 border border-gray-800 bg-[#FDF6E3] rounded-full px-10 py-4 text-gray-900 font-bold hover:bg-[#faeed9] transition-colors"> 
+                                 Vytvořit vlastní pizzu 
+                             </a> 
+                         </div> 
+                         <div class="flex flex-col items-center"> 
+                             <div class="relative w-full max-w-md bg-black/5 rounded-2xl shadow-2xl aspect-[4/3]"> 
+                                 <img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl"> 
+                                 <button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg> 
+                                 </button> 
+                                 <button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> 
+                                 </button> 
+                             </div> 
+           _Burgery
+                            </a> 
+                         </div> 
+                         <img src="Images/wingit.jpg" alt="Kuřecí křídla" class="animate-lure-pulse absolute bottom-[31px] left-[calc(50%-75px)] -translate-x-1/2 w-80 h-80 rounded-full object-cover"> 
+                     </div> 
+                 </div> 
+             </div> 
+         </section> 
+         <div class="relative"> 
+             <section class="bg-parchment pt-20 pb-16 relative z-10"> 
+                 <div class="container mx-auto px-12 md:px-16 lg:px-24"> 
+                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"> 
+                         <div> 
+                             <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Tradice již od roku 1994</p> 
+                             <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-gray-900">PROČ PIZZA U NÁS?</h2> 
+                             <p class="mt-6 text-gray-700 leading-relaxed"> 
+                                 Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů. 
+                             </p> 
+                             <div class="mt-8 space-y-4"> 
+                                 <div class="flex items-start gap-x-3"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"> 
+                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /> 
+                                     </svg> 
+                                     <span class="text-gray-800 font-medium">Těsto je nadýchané s křupavým okrajem.</span> 
+                                 </div> 
+                                 <div class="flex items-start gap-x-3"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"> 
+                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /> 
+                                     </svg> 
+                                     <span class="text-gray-800 font-medium">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span> 
+                                 </div> 
+                                 <div class="flex items-start gap-x-3"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18]" viewBox="0 0 20 20" fill="currentColor"> 
+                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /> 
+                                     </svg> 
+                                     <span class="text-gray-800 font-medium">Bohatá porce kvalitních surovin.</span> 
+                                 </div> 
+                             </div> 
+                             <a href="#" class="inline-block mt-10 border border-gray-800 bg-[#FDF6E3] rounded-full px-10 py-4 text-gray-900 font-bold hover:bg-[#faeed9] transition-colors"> 
+                                 Vytvořit vlastní pizzu 
+                             </a> 
+                         </div> 
+                         <div class="flex flex-col items-center"> 
+                             <div class="relative w-full max-w-md bg-black/5 rounded-2xl shadow-2xl aspect-[4/3]"> 
+                                 <img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl"> 
+                                 <button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg> 
+                                 </button> 
+                                 <button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10"> 
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> 
+                                 </button> 
+                             </div> 
+                             <div class="mt-6 flex items-center gap-x-3"> 
+                                 <template v-for="(image, index) in gallery.images" :key="index"> 
+                                     <button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-[#E20B18] hover:bg-[#e20b18]/20']"></button> 
+                                 </template> 
+                             </div> 
+                         </div> 
+                     </div> 
+                 </div> 
+             </section> 
+             <div class="relative -mt-16 z-0"> 
+                 <div class="relative"> 
+                     <div class="absolute inset-0 pricelist-bg-bottom z-0"></div> 
+                     <div class="absolute inset-0 pricelist-bg-top z-10"></div> 
+                     <div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div> 
+                     <section class="relative z-20 bg-transparent"> 
+                         <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16"> 
+                             <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p> 
+                             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2> 
+                             <div class="flex justify-center flex-wrap gap-4 my-8"> 
+                                 <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button> 
+                                 <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button> 
+                                 <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button> 
+                             </div> 
+                             <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8"> 
+                                 <div class="space-y-4"> 
+                                     <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-2 last:border-b-0 gap-4"> 
+                                         <div class="flex-grow text-left"> 
+                                             <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p> 
+                                             <p class="text-sm text-gray-300">{{ item.description }}</p> 
+                                         </div> 
+                                         <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end"> 
+                                             <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span> 
+                                             <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button> 
+                                             <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button> 
+                                         </div> 
+                                     </div> 
+                                 </div> 
+                             </div> 
+                             <div class="mt-8"> 
+                                 <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse"> 
+                                     Zobrazit celé menu 
+                                 </a> 
+                             </div> 
+                         </div> 
+                     </section> 
+                 </div> 
+             </div> 
+             <section class="bg-white py-16 lg:py-24"> 
+                 <div class="container mx-auto px-6 md:px-12 lg:px-20"> 
+                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"> 
+                         <div class="w-full flex justify-center items-center"> 
+                             <div class="fb-video" data-href="https://www.facebook.com/reel/648864994593707" data-width="250" data-show-text="false" data-autoplay="true"></div> 
+                         </div> 
+                         <div> 
+                             <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Prostory podniku</p> 
+                             <h2 class="mt-4 text-3xl lg:text-4xl font-black uppercase tracking-wide text-gray-900">Přijď si sednout. U nás to voní poctivou pizzou</h2> 
+                             <div class="mt-6 space-y-5 text-gray-700 leading-relaxed"> 
+                                 <p>San Marino není jen pizzerie. Je to místo, kam se chodí zpomalit. Kde voní čerstvě pečené těsto. Kde slyšíš cinkání skleniček a smích od vedlejšího stolu.</p> 
+                                 <p>Náš podnik má duši. Od roku 1994 tu pečeme pizzu, kterou si pamatuješ ještě druhý den. Těsto děláme každý den ručně. Sýr se táhne, kůrka křupe a porce jsou tak akorát, aby zbylo místo i na dezert.</p> 
+                                 <p>Ať už přijdeš na oběd, večeři nebo jen na kafe – budeš vítán.</p> 
+                                 <p>S rodinou. S kamarády. Nebo klidně sám.</p> 
+                             </div> 
+                             <a :href="'tel:' + phone.replace(/\s/g, '')" class="mt-8 inline-flex items-center gap-x-3 bg-[#E20B18] text-white font-bold text-lg rounded-full px-8 py-4 hover:bg-[#c00a15] transition-colors duration-300"> 
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg> 
+                                 <span>+420 604 633 373</span> 
+                             </a> 
+                         </div> 
+                     </div> 
+                 </div> 
+             </section> 
+             <section class="bg-burgers py-16 lg:py-24 text-white relative"> 
+                 <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none"> 
+                     <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span> 
+                     <span class="text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span> 
+                 </div> 
+                 <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10"> 
+                     <div class="text-center"> 
+                         <p class="font-cursive text-4xl text-white" style="position:relative; top: -15px;">Co nabízíme mimo pizzy</p> 
+                         <h2 class="mt-2 text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso,<br>které si zamiluješ</h2> 
+                     </div> 
+                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12"> 
+                         <img src="Images/burger.jpg" alt="Burger na talíři" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl"> 
+                         <img src="Images/burger1.jpg" alt="Burger zblízka" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl"> 
+                         <img src="Images/wingit1.webp" alt="Kuřecí stripsy s omáčkou" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl"> 
+                         <img src="Images/wingit2.jpg" alt="Burger s batátovými hranolky" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl"> 
+                     </div> 
+                 </div> 
+             </section> 
+             <section class="bg-white py-16 lg:py-24"> 
+                 <div class="container mx-auto px-6 md:px-12 lg:px-20"> 
+                     <div class="text-center mb-12"> 
+                         <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Zůstaň v obraze</p> 
+                         <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJ NÁS ONLINE</h2> 
+                     </div> 
+                                         <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                     <div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
+                 </div> 
+             </section> 
+         </div> 
+     </div> 
 
-        createApp({
-            data() {
-                return {
-                    navigation: [
-                        { name: 'Menu', href: '#' },
-                        { name: 'Otevírací doba', href: '#' },
-                        { name: 'Galerie', href: '#' },
-                        { name: 'Rezervace', href: '#' },
-                        { name: 'Kontakty', href: '#' },
-                    ],
-                    title: 'Pizzerie San Marino v Kladně',
-                    slogan: 'Vždy čerstvá, vždy z lásky',
-                    description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny',
-                    phone: '+420 604 633 373',
-                    orderText: 'Objednat online',
-                    gallery: {
-                        currentIndex: 0,
-                        images: [
-                            'Images/pizza.webp', 'Images/pizza1.jpg', 'Images/pizza2.jpg',
-                            'Images/detskemenu.jpg', 'Images/pizza3.jpg'
-                        ]
-                    },
-                    frequentOrders: [
-                        { id: 1, name: 'Pizza se sýrem', description: 'Tomatový základ, sýr', price: '172' },
-                        { id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr', price: '176' },
-                        { id: 3, name: 'Pizza Hawai', description: 'Smetanový základ, ananas, šunka', price: '185' },
-                        { id: 4, name: 'Pizza Quattro Formaggi', description: 'Tomatový základ, 4 druhy sýra', price: '190' }
-                    ]
-                }
-            },
-            methods: {
-                nextImage() {
-                    this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
-                },
-                prevImage() {
-                    this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length;
-                },
-                goToImage(index) {
-                    this.gallery.currentIndex = index;
-                }
-            }
-        }).mount('#app');
-    </script>
+     <script> 
+         // Inicializace Facebook SDK pro zobrazení videí
+         window.fbAsyncInit = function() { 
+             FB.init({ 
+             xfbml      : true, 
+             version    : 'v23.0' 
+             }); 
 
-</body>
-</html>
+             FB.XFBML.parse(); 
+         }; 
+
+         const { createApp } = Vue; 
+
+         createApp({ 
+             data() { 
+                 return { 
+                     navigation: [ 
+                         { name: 'Menu', href: '#' }, 
+                         { name: 'Otevírací doba', href: '#' }, 
+                         { name: 'Galerie', href: '#' }, 
+                         { name: 'Rezervace', href: '#' }, 
+                         { name: 'Kontakty', href: '#' }, 
+                     ], 
+                     title: 'Pizzerie San Marino v Kladně', 
+                     slogan: 'Vždy čerstvá, vždy z lásky', 
+                     description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny', 
+                     phone: '+420 604 633 373', 
+                     orderText: 'Objednat online', 
+                     gallery: { 
+                         currentIndex: 0, 
+                         images: [ 
+                             'Images/pizza.webp', 'Images/pizza1.jpg', 'Images/pizza2.jpg', 
+                             'Images/detskemenu.jpg', 'Images/pizza3.jpg' 
+                         ] 
+                     }, 
+                     frequentOrders: [ 
+                         { id: 1, name: 'Pizza se sýrem', description: 'Tomatový základ, sýr', price: '172' }, 
+                         { id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr', price: '176' }, 
+                         { id: 3, name: 'Pizza Hawai', description: 'Smetanový základ, ananas, šunka', price: '185' }, 
+                         { id: 4, name: 'Pizza Quattro Formaggi', description: 'Tomatový základ, 4 druhy sýra', price: '190' } 
+                     ]
+                 } 
+             }, 
+             methods: { 
+                 nextImage() { 
+                     this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length; 
+                 }, 
+                 prevImage() { 
+                     this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length; 
+                 }, 
+                 goToImage(index) { 
+                     this.gallery.currentIndex = index; 
+                 } 
+             }
+         }).mount('#app'); 
+     </script> 
+
+ </body> 
+ </html>

@@ -100,20 +100,25 @@
             background-repeat: no-repeat;
         }
 
-        /* === STYLY PRO GALERII RECENZÍ === */
+        /* === STYLY PRO GALERII RECENZÍ (UPRAVENO) === */
         .swiper-container-reviews .swiper-slide {
             aspect-ratio: 4 / 3;
-            /* Udržuje poměr stran pro ostrost */
+            /* Přidáno pozadí pro případ, že obrázek nevyplní celou plochu */
+            background-color: #f3f4f6; /* Světle šedé pozadí */
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .swiper-container-reviews .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            /* Ořízne obrázek, aby vyplnil box bez deformace */
-            border-radius: 0.75rem;
-            /* Zaoblené rohy */
+            /* Změna z 'cover' na 'contain' zajistí zobrazení celého obrázku */
+            object-fit: contain; 
+            border-radius: 0.75rem; /* Zaoblené rohy zůstávají */
         }
 
         .review-swiper-button-prev,

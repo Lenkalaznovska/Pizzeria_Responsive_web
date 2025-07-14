@@ -94,12 +94,14 @@
             background-repeat: no-repeat;
         }
 
-        .bg-burgers-section {
+        /* Třída pro nové spojené pozadí */
+        .bg-burgers-reviews-wrapper {
             background-image: url('Images/pozadi2.jpg');
-            background-size: 100% 100%;
+            background-size: 100% auto;
             background-repeat: no-repeat;
+            background-color: #f1f5f9; /* Barva, která navazuje na pozadí */
         }
-
+        
         /* === STYLY PRO GALERII RECENZÍ (Bílé pozadí) === */
         .swiper-container-reviews .swiper-slide {
             aspect-ratio: 4 / 3;
@@ -304,6 +306,44 @@
             </div>
         </section>
         <div class="relative">
+            <div class="relative -mt-16 z-0">
+                <div class="relative">
+                    <div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
+                    <div class="absolute inset-0 pricelist-bg-top z-10"></div>
+                    <div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
+                    <section class="relative z-20 bg-transparent">
+                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
+                            <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
+                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
+                            <div class="flex justify-center flex-wrap gap-4 my-8">
+                                <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
+                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
+                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
+                            </div>
+                            <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8">
+                                <div class="space-y-4">
+                                    <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-2 last:border-b-0 gap-4">
+                                        <div class="flex-grow text-left">
+                                            <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p>
+                                            <p class="text-sm text-gray-300">{{ item.description }}</p>
+                                        </div>
+                                        <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end">
+                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
+                                            <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button>
+                                            <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse">
+                                    Zobrazit celé menu
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
             <section class="bg-parchment pt-20 pb-16 relative z-10">
                 <div class="container mx-auto px-12 md:px-16 lg:px-24">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -360,122 +400,60 @@
                     </div>
                 </div>
             </section>
-            <div class="relative -mt-16 z-0">
-                <div class="relative">
-                    <div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
-                    <div class="absolute inset-0 pricelist-bg-top z-10"></div>
-                    <div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
-                    <section class="relative z-20 bg-transparent">
-                        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center pt-24 pb-16">
-                            <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
-                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
-                            <div class="flex justify-center flex-wrap gap-4 my-8">
-                                <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
-                            </div>
-                            <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8">
-                                <div class="space-y-4">
-                                    <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-2 last:border-b-0 gap-4">
-                                        <div class="flex-grow text-left">
-                                            <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p>
-                                            <p class="text-sm text-gray-300">{{ item.description }}</p>
-                                        </div>
-                                        <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end">
-                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
-                                            <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-4 md:px-6 rounded-full text-sm">Upravit</button>
-                                            <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-4 md:px-6 rounded-full text-sm">Objednat online</button>
+
+            <div class="bg-burgers-reviews-wrapper">
+                <section class="py-16 lg:py-24 text-white relative">
+                    <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
+                        <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
+                        <span class="text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>
+                    </div>
+                    <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+                        <div class="text-center">
+                            <p class="font-cursive text-4xl text-white" style="position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
+                            <h2 class="mt-2 text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso,<br>které si zamiluješ</h2>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
+                            <img src="Images/burger.jpg" alt="Burger na talíři" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                            <img src="Images/burger1.jpg" alt="Burger zblízka" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                            <img src="Images/wingit1.webp" alt="Kuřecí stripsy s omáčkou" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                            <img src="Images/wingit2.jpg" alt="Burger s batátovými hranolky" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-16 lg:py-24">
+                    <div class="container mx-auto px-6 md:px-12 lg:px-20">
+                        <div class="text-center mb-12">
+                            <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Recenze</p>
+                            <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
+                        </div>
+
+                        <div class="relative">
+                            <div class="max-w-[80%] mx-auto overflow-hidden">
+                                <div class="swiper-container swiper-container-reviews">
+                                    <div class="swiper-wrapper">
+                                        <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+                                            <img :src="imgSrc" alt="Recenze od klienta">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-8">
-                                <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse">
-                                    Zobrazit celé menu
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <section class="bg-white py-16 lg:py-24">
-                <div class="container mx-auto px-6 md:px-12 lg:px-20">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div class="w-full flex justify-center items-center">
-                        </div>
-                        <div>
-                            <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Prostory podniku</p>
-                            <h2 class="mt-4 text-3xl lg:text-4xl font-black uppercase tracking-wide text-gray-900">Přijď si sednout. U nás to voní poctivou pizzou</h2>
-                            <div class="mt-6 space-y-5 text-gray-700 leading-relaxed">
-                                <p>San Marino není jen pizzerie. Je to místo, kam se chodí zpomalit. Kde voní čerstvě pečené těsto. Kde slyšíš cinkání skleniček a smích od vedlejšího stolu.</p>
-                                <p>Náš podnik má duši. Od roku 1994 tu pečeme pizzu, kterou si pamatuješ ještě druhý den. Těsto děláme každý den ručně. Sýr se táhne, kůrka křupe a porce jsou tak akorát, aby zbylo místo i na dezert.</p>
-                                <p>Ať už přijdeš na oběd, večeři nebo jen na kafe – budeš vítán.</p>
-                                <p>S rodinou. S kamarády. Nebo klidně sám.</p>
-                            </div>
-                            <a :href="'tel:' + phone.replace(/\s/g, '')" class="mt-8 inline-flex items-center gap-x-3 bg-[#E20B18] text-white font-bold text-lg rounded-full px-8 py-4 hover:bg-[#c00a15] transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                                    <path d="M15 7a2 2 0 0 1 2 2"></path>
-                                    <path d="M15 3a6 6 0 0 1 6 6"></path>
+                            <div class="review-swiper-button-prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                                 </svg>
-                                <span>+420 604 633 373</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="bg-burgers-section py-16 lg:py-24 text-white relative">
-                <div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
-                    <span class="text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
-                    <span class="text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>
-                </div>
-                <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-                    <div class="text-center">
-                        <p class="font-cursive text-4xl text-white" style="position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
-                        <h2 class="mt-2 text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso,<br>které si zamiluješ</h2>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
-                        <img src="Images/burger.jpg" alt="Burger na talíři" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="Images/burger1.jpg" alt="Burger zblízka" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="Images/wingit1.webp" alt="Kuřecí stripsy s omáčkou" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="Images/wingit2.jpg" alt="Burger s batátovými hranolky" class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    </div>
-                </div>
-            </section>
-
-            <section class="bg-gray-100 py-16 lg:py-24">
-                <div class="container mx-auto px-6 md:px-12 lg:px-20">
-                    <div class="text-center mb-12">
-                        <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Recenze</p>
-                        <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají klienti?</h2>
-                    </div>
-
-                    <div class="relative">
-                        <div class="max-w-[80%] mx-auto overflow-hidden">
-                            <div class="swiper-container swiper-container-reviews">
-                                <div class="swiper-wrapper">
-                                    <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-                                        <img :src="imgSrc" alt="Recenze od klienta">
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="review-swiper-button-next">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
                             </div>
                         </div>
-                        <div class="review-swiper-button-prev">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </div>
-                        <div class="review-swiper-button-next">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
 
-                </div>
-            </section>
+                    </div>
+                </section>
+            </div>
+
 
             <section class="bg-white py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
@@ -519,115 +497,117 @@
             </section>
         </div>
 
-        <script>
-            const {
-                createApp
-            } = Vue;
+    </div>
 
-            createApp({
-                data() {
-                    const reviewImages = ['Images/recenze.jpg'];
-                    for (let i = 1; i <= 15; i++) {
-                        reviewImages.push(`Images/recenze${i}.jpg`);
-                    }
+    <script>
+        const {
+            createApp
+        } = Vue;
 
-                    // Náhodné zamíchání pole obrázků
-                    for (let i = reviewImages.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [reviewImages[i], reviewImages[j]] = [reviewImages[j], reviewImages[i]];
-                    }
-
-                    return {
-                        navigation: [{
-                            name: 'Menu',
-                            href: '#'
-                        }, {
-                            name: 'Otevírací doba',
-                            href: '#'
-                        }, {
-                            name: 'Galerie',
-                            href: '#'
-                        }, {
-                            name: 'Rezervace',
-                            href: '#'
-                        }, {
-                            name: 'Kontakty',
-                            href: '#'
-                        }, ],
-                        title: 'Pizzerie San Marino v Kladně',
-                        slogan: 'Vždy čerstvá, vždy z lásky',
-                        description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny',
-                        phone: '+420 604 633 373',
-                        orderText: 'Objednat online',
-                        gallery: {
-                            currentIndex: 0,
-                            images: [
-                                'Images/pizza.webp', 'Images/pizza1.jpg', 'Images/pizza2.jpg',
-                                'Images/detskemenu.jpg', 'Images/pizza3.jpg'
-                            ]
-                        },
-                        frequentOrders: [{
-                            id: 1,
-                            name: 'Pizza se sýrem',
-                            description: 'Tomatový základ, sýr',
-                            price: '172'
-                        }, {
-                            id: 2,
-                            name: 'Pizza se šunkou',
-                            description: 'Tomatový základ, sýr',
-                            price: '176'
-                        }, {
-                            id: 3,
-                            name: 'Pizza Hawai',
-                            description: 'Smetanový základ, ananas, šunka',
-                            price: '185'
-                        }, {
-                            id: 4,
-                            name: 'Pizza Quattro Formaggi',
-                            description: 'Tomatový základ, 4 druhy sýra',
-                            price: '190'
-                        }],
-                        reviewImages: reviewImages
-                    }
-                },
-                methods: {
-                    nextImage() {
-                        this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
-                    },
-                    prevImage() {
-                        this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length;
-                    },
-                    goToImage(index) {
-                        this.gallery.currentIndex = index;
-                    }
-                },
-                mounted() {
-                    new Swiper('.swiper-container-reviews', {
-                        loop: true,
-                        slidesPerView: 1,
-                        spaceBetween: 20,
-                        autoplay: {
-                            delay: 5000,
-                            disableOnInteraction: false,
-                        },
-                        navigation: {
-                            nextEl: '.review-swiper-button-next',
-                            prevEl: '.review-swiper-button-prev',
-                        },
-                        breakpoints: {
-                            640: {
-                                slidesPerView: 2,
-                                spaceBetween: 20,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                                spaceBetween: 30,
-                            },
-                        },
-                    });
+        createApp({
+            data() {
+                const reviewImages = ['Images/recenze.jpg'];
+                for (let i = 1; i <= 15; i++) {
+                    reviewImages.push(`Images/recenze${i}.jpg`);
                 }
-            }).mount('#app');
-        </script>
+
+                // Náhodné zamíchání pole obrázků
+                for (let i = reviewImages.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [reviewImages[i], reviewImages[j]] = [reviewImages[j], reviewImages[i]];
+                }
+
+                return {
+                    navigation: [{
+                        name: 'Menu',
+                        href: '#'
+                    }, {
+                        name: 'Otevírací doba',
+                        href: '#'
+                    }, {
+                        name: 'Galerie',
+                        href: '#'
+                    }, {
+                        name: 'Rezervace',
+                        href: '#'
+                    }, {
+                        name: 'Kontakty',
+                        href: '#'
+                    }, ],
+                    title: 'Pizzerie San Marino v Kladně',
+                    slogan: 'Vždy čerstvá, vždy z lásky',
+                    description: 'Retro pizzerie San Marino – místní klasika, rychlý rozvoz, poctivé suroviny',
+                    phone: '+420 604 633 373',
+                    orderText: 'Objednat online',
+                    gallery: {
+                        currentIndex: 0,
+                        images: [
+                            'Images/pizza.webp', 'Images/pizza1.jpg', 'Images/pizza2.jpg',
+                            'Images/detskemenu.jpg', 'Images/pizza3.jpg'
+                        ]
+                    },
+                    frequentOrders: [{
+                        id: 1,
+                        name: 'Pizza se sýrem',
+                        description: 'Tomatový základ, sýr',
+                        price: '172'
+                    }, {
+                        id: 2,
+                        name: 'Pizza se šunkou',
+                        description: 'Tomatový základ, sýr',
+                        price: '176'
+                    }, {
+                        id: 3,
+                        name: 'Pizza Hawai',
+                        description: 'Smetanový základ, ananas, šunka',
+                        price: '185'
+                    }, {
+                        id: 4,
+                        name: 'Pizza Quattro Formaggi',
+                        description: 'Tomatový základ, 4 druhy sýra',
+                        price: '190'
+                    }],
+                    reviewImages: reviewImages
+                }
+            },
+            methods: {
+                nextImage() {
+                    this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
+                },
+                prevImage() {
+                    this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length;
+                },
+                goToImage(index) {
+                    this.gallery.currentIndex = index;
+                }
+            },
+            mounted() {
+                new Swiper('.swiper-container-reviews', {
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.review-swiper-button-next',
+                        prevEl: '.review-swiper-button-prev',
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                    },
+                });
+            }
+        }).mount('#app');
+    </script>
 </body>
 
 </html>

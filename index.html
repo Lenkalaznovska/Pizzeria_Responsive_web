@@ -448,21 +448,24 @@
 
             <section class="bg-white py-16 lg:py-24">
                 <div class="container mx-auto px-6 md:px-12 lg:px-20">
-                    <div class="text-left mb-12">
-                        <p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Recenze</p>
-                        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají zákazníci?</h2>
-                    </div>
-
+                    
                     <div class="relative">
-                        <div class="max-w-[80%] mx-auto overflow-hidden">
-                            <div class="swiper-container swiper-container-reviews">
-                                <div class="swiper-wrapper">
-                                    <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-                                        <img :src="imgSrc" alt="Recenze od klienta">
+                        <div class="max-w-[80%] mx-auto">
+                            <div class="text-left mb-8">
+                                <p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Recenze</p>
+                                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co o jídle říkají zákazníci?</h2>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="swiper-container swiper-container-reviews">
+                                    <div class="swiper-wrapper">
+                                        <div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+                                            <img :src="imgSrc" alt="Recenze od zákazníka">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="review-swiper-button-prev">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />

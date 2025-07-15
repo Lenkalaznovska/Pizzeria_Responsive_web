@@ -590,7 +590,7 @@
                             <span class="font-semibold">Pondělí</span>
                             <span class="text-left">11:00 - 21:15</span>
                         </div>
-                        <p class="font-bold text-red-500 text-sm uppercase -mt-1">Online/Tel. objednávky</p>
+                         <p class="font-bold text-red-500 text-sm uppercase leading-tight pt-1">Online/Tel. objednávky</p>
                         <div data-day="2" class="day-row grid grid-cols-2 gap-4 pt-4"><span class="font-semibold">Úterý</span> <span>11:00 - 21:15</span></div>
                         <div data-day="3" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold">Středa</span> <span>11:00 - 21:15</span></div>
                         <div data-day="4" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold">Čtvrtek</span> <span>11:00 - 21:15</span></div>
@@ -759,11 +759,14 @@
                 const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
                 
                 if (currentDayRow) {
-                    currentDayRow.classList.add('text-white', 'font-bold');
-                    const innerNote = currentDayRow.querySelector('p');
-                    if(innerNote) {
-                         innerNote.classList.add('text-red-500');
-                    }
+                    Array.from(currentDayRow.children).forEach(child => {
+                        child.classList.add('text-white', 'font-bold');
+                        const innerNote = child.querySelector('p');
+                        if (innerNote) {
+                            innerNote.classList.remove('font-bold'); 
+                            innerNote.classList.add('text-red-500');
+                        }
+                    });
                 }
             }
         }).mount('#app');

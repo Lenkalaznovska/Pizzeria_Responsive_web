@@ -588,14 +588,16 @@
     
                 <div class="space-y-4 text-center">
                     <h4 class="font-bold uppercase tracking-wider">Otevírací & rozvozová doba</h4>
-                    <div id="opening-hours-footer" class="text-sm space-y-3 inline-grid grid-cols-[auto,1fr] gap-x-3 text-left">
+                    <div id="opening-hours-footer" class="inline-grid grid-cols-[auto,auto] gap-x-4 text-left text-sm">
+                        
                         <div data-day="1" class="day-row contents">
                             <span class="font-semibold text-right">Pondělí:</span>
-                            <span>
-                                11:00 - 21:15
-                                <span class="block text-red-400/90 font-bold text-xs uppercase">Online/Telefonické objednávky</span>
-                            </span>
+                            <div class="text-left">
+                                <span>11:00 - 21:15</span>
+                                <p class="font-semibold text-red-300 text-xs uppercase">Online/Telefonické objednávky</p>
+                            </div>
                         </div>
+
                         <div data-day="2" class="day-row contents"><span class="font-semibold text-right">Úterý:</span> <span>11:00 - 21:15</span></div>
                         <div data-day="3" class="day-row contents"><span class="font-semibold text-right">Středa:</span> <span>11:00 - 21:15</span></div>
                         <div data-day="4" class="day-row contents"><span class="font-semibold text-right">Čtvrtek:</span> <span>11:00 - 21:15</span></div>
@@ -764,9 +766,14 @@
                 const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
                 
                 if (currentDayRow) {
-                    // Najdeme všechny přímé potomky (span) a přidáme jim třídy
+                    // Najdeme všechny přímé potomky a přidáme jim třídy
                     Array.from(currentDayRow.children).forEach(child => {
                         child.classList.add('text-red-400', 'font-bold');
+                        const innerNote = child.querySelector('p');
+                        if (innerNote) {
+                            innerNote.classList.remove('text-red-400/90');
+                            innerNote.classList.add('text-red-400');
+                        }
                     });
                 }
             }

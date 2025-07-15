@@ -583,26 +583,26 @@
                     </div>
                 </div>
     
-                <div class="space-y-4 pt-1">
+                <div class="space-y-4 md:pt-1">
                     <h4 class="text-xl font-black uppercase tracking-wider text-white">Otevírací doba</h4>
-                    <div id="opening-hours-footer" class="text-white/80 space-y-2.5 text-sm">
-                        <div data-day="1" class="day-row flex justify-between items-start gap-4">
-                            <span class="font-semibold">Pondělí</span>
-                            <div class="text-right">
+                    <div id="opening-hours-footer" class="text-white/80 space-y-2 text-sm">
+                        <div data-day="1" class="day-row grid grid-cols-2 gap-4">
+                            <span class="font-semibold text-left">Pondělí</span>
+                            <div class="text-left">
                                 <span>11:00 - 21:15</span>
-                                <p class="font-semibold text-[#FCDFA3] text-sm uppercase leading-tight">Online/Tel. objednávky</p>
+                                <p class="font-semibold text-[#E20B18] text-sm uppercase leading-tight">Online/Tel. objednávky</p>
                             </div>
                         </div>
-                        <div data-day="2" class="day-row flex justify-between"><span class="font-semibold">Úterý</span> <span>11:00 - 21:15</span></div>
-                        <div data-day="3" class="day-row flex justify-between"><span class="font-semibold">Středa</span> <span>11:00 - 21:15</span></div>
-                        <div data-day="4" class="day-row flex justify-between"><span class="font-semibold">Čtvrtek</span> <span>11:00 - 21:15</span></div>
-                        <div data-day="5" class="day-row flex justify-between"><span class="font-semibold">Pátek</span> <span>11:00 - 21:15</span></div>
-                        <div data-day="6" class="day-row flex justify-between"><span class="font-semibold">Sobota</span> <span>11:00 - 21:15</span></div>
-                        <div data-day="0" class="day-row flex justify-between"><span class="font-semibold">Neděle</span> <span>11:00 - 21:15</span></div>
+                        <div data-day="2" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold text-left">Úterý</span> <span>11:00 - 21:15</span></div>
+                        <div data-day="3" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold text-left">Středa</span> <span>11:00 - 21:15</span></div>
+                        <div data-day="4" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold text-left">Čtvrtek</span> <span>11:00 - 21:15</span></div>
+                        <div data-day="5" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold text-left">Pátek</span> <span>11:00 - 21:15</span></div>
+                        <div data-day="6" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold text-left">Sobota</span> <span>11:00 - 21:15</span></div>
+                        <div data-day="0" class="day-row grid grid-cols-2 gap-4"><span class="font-semibold text-left">Neděle</span> <span>11:00 - 21:15</span></div>
                     </div>
                 </div>
     
-                <div class="space-y-4 pt-1">
+                <div class="space-y-4 md:pt-1">
                     <h4 class="text-xl font-black uppercase tracking-wider text-white">Kontakty</h4>
                     <ul class="space-y-3 text-white/80 text-sm">
                         <li class="flex items-start gap-x-3">
@@ -761,14 +761,13 @@
                 const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
                 
                 if (currentDayRow) {
-                    // Zvýrazníme text dne a času
                     Array.from(currentDayRow.children).forEach(child => {
-                        child.classList.add('text-amber-300', 'font-bold');
-                        // Zvýrazníme i poznámku, pokud existuje, ale jinou barvou
+                        child.classList.add('text-red-400', 'font-bold');
                         const innerNote = child.querySelector('p');
                         if (innerNote) {
-                            innerNote.classList.remove('text-amber-300'); // Odstraníme žlutou, pokud byla přidána
-                            innerNote.classList.add('text-red-400'); // Přidáme výraznější červenou
+                            // Ujistíme se, že hlavní barva zvýraznění zůstane, ale poznámka bude mít svou specifickou
+                            innerNote.classList.remove('font-bold');
+                            innerNote.classList.add('text-red-400');
                         }
                     });
                 }

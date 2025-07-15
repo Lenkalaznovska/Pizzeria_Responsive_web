@@ -570,13 +570,10 @@
     <footer class="bg-gray-800 text-white w-full">
         <div class="container mx-auto py-16 px-6 md:px-12 lg:px-20">
             
-            <div class="flex justify-center mb-12">
-                <a href="#"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20 invert"></a>
-            </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 text-base items-start">
     
                 <div class="space-y-4 text-center md:text-left">
+                     <a href="#" class="inline-block mb-4"><img src="Images/logo.webp" alt="Logo Pizzerie San Marino" class="h-20 invert"></a>
                     <h4 class="text-xl font-black uppercase tracking-wider text-white">Provozovatel</h4>
                     <div class="text-gray-300 space-y-1">
                         <p>ALFA plus s.r.o.</p>
@@ -593,7 +590,7 @@
                             <span class="font-semibold">Pondělí</span>
                             <div class="text-right">
                                 <span>11:00 - 21:15</span>
-                                <p class="font-semibold text-[#FCDFA3] text-xs uppercase">Online/Tel. objednávky</p>
+                                <p class="font-semibold text-amber-300 text-xs uppercase">Online/Tel. objednávky</p>
                             </div>
                         </div>
                         <div data-day="2" class="day-row flex justify-between"><span class="font-semibold">Úterý</span> <span>11:00 - 21:15</span></div>
@@ -765,10 +762,10 @@
                 
                 if (currentDayRow) {
                     Array.from(currentDayRow.children).forEach(child => {
-                        child.classList.add('text-[#FCDFA3]', 'font-bold');
+                        child.classList.add('text-amber-300', 'font-bold');
                         const innerNote = child.querySelector('p');
                         if (innerNote) {
-                            innerNote.classList.remove('text-[#FCDFA3]');
+                            innerNote.classList.remove('text-amber-300');
                             innerNote.classList.add('text-red-400');
                         }
                     });

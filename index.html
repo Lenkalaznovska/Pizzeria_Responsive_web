@@ -590,15 +590,15 @@
                     <h4 class="font-bold uppercase tracking-wider">Otevírací & rozvozová doba</h4>
                     <div id="opening-hours-footer" class="text-sm space-y-3">
                         <div data-day="1" class="day-row">
-                            <span class="font-semibold">Pondělí:</span> 11:00 - 21:15
+                            <p><span class="font-semibold">Pondělí:</span> 11:00 - 21:15</p>
                             <p class="text-red-400/80 font-bold text-xs uppercase pt-0.5">Online/Telefonické objednávky</p>
                         </div>
-                        <div data-day="2" class="day-row"><span class="font-semibold">Úterý:</span> 11:00 - 21:15</div>
-                        <div data-day="3" class="day-row"><span class="font-semibold">Středa:</span> 11:00 - 21:15</div>
-                        <div data-day="4" class="day-row"><span class="font-semibold">Čtvrtek:</span> 11:00 - 21:15</div>
-                        <div data-day="5" class="day-row"><span class="font-semibold">Pátek:</span> 11:00 - 21:15</div>
-                        <div data-day="6" class="day-row"><span class="font-semibold">Sobota:</span> 11:00 - 21:15</div>
-                        <div data-day="0" class="day-row"><span class="font-semibold">Neděle:</span> 11:00 - 21:15</div>
+                        <div data-day="2" class="day-row"><p><span class="font-semibold">Úterý:</span> 11:00 - 21:15</p></div>
+                        <div data-day="3" class="day-row"><p><span class="font-semibold">Středa:</span> 11:00 - 21:15</p></div>
+                        <div data-day="4" class="day-row"><p><span class="font-semibold">Čtvrtek:</span> 11:00 - 21:15</p></div>
+                        <div data-day="5" class="day-row"><p><span class="font-semibold">Pátek:</span> 11:00 - 21:15</p></div>
+                        <div data-day="6" class="day-row"><p><span class="font-semibold">Sobota:</span> 11:00 - 21:15</p></div>
+                        <div data-day="0" class="day-row"><p><span class="font-semibold">Neděle:</span> 11:00 - 21:15</p></div>
                     </div>
                 </div>
     
@@ -762,11 +762,6 @@
                 
                 if (currentDayRow) {
                     currentDayRow.classList.add('text-red-400', 'font-bold');
-                    // Přidání speciální třídy i na vnitřní span pro konzistentní barvu
-                    const spanElement = currentDayRow.querySelector('span.font-semibold');
-                    if(spanElement) {
-                        spanElement.classList.add('text-red-400');
-                    }
                 }
             }
         }).mount('#app');

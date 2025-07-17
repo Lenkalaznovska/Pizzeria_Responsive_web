@@ -405,21 +405,23 @@
                     <section class="relative z-20 bg-transparent">
                         <div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-24 pb-16">
                             <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
-                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">CENÍK NEJČASTĚJŠÍCH OBJEDNÁVEK</h2>
+                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">NEJČASTĚJI OBJEDNÁVANÁ JÍDLA</h2>
                             <div class="flex justify-center flex-wrap gap-4 my-8">
-                                <button class="bg-[#E20B18] text-white font-bold py-2 px-6 rounded-full">Pizzy ø28cm</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Burgery</button>
-                                <button class="bg-black/40 border border-white/50 text-white font-semibold py-2 px-6 rounded-full hover:bg-white/20 transition-colors">Kuřecí maso</button>
+                                <button @click="activeCategory = 'pizza'" :class="activeCategory === 'pizza' ? 'bg-[#E20B18] text-white font-bold' : 'bg-black/40 border border-white/50 text-white font-semibold hover:bg-white/20'" class="py-2 px-6 rounded-full transition-colors">Pizzy ø24cm</button>
+                                <button @click="activeCategory = 'burger'" :class="activeCategory === 'burger' ? 'bg-[#E20B18] text-white font-bold' : 'bg-black/40 border border-white/50 text-white font-semibold hover:bg-white/20'" class="py-2 px-6 rounded-full transition-colors">Burgery</button>
+                                <button @click="activeCategory = 'chicken'" :class="activeCategory === 'chicken' ? 'bg-[#E20B18] text-white font-bold' : 'bg-black/40 border border-white/50 text-white font-semibold hover:bg-white/20'" class="py-2 px-6 rounded-full transition-colors">Kuřecí speciality</button>
                             </div>
                             <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8">
                                 <div class="space-y-4">
-                                    <div v-for="item in frequentOrders" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-3 last:border-b-0 gap-4">
+                                    <div v-for="item in activeList" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-3 last:border-b-0 gap-4">
                                         <div class="flex-grow text-left w-full">
                                             <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p>
                                             <p class="text-sm text-gray-300">{{ item.description }}</p>
                                         </div>
                                         <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end flex-shrink-0">
-                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">{{ item.price }} Kč</span>
+                                            <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">
+                                                <span v-if="activeCategory === 'pizza'">od </span>{{ item.price }} Kč
+                                            </span>
                                             <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-3 md:px-6 rounded-full text-sm">Upravit</button>
                                             <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-3 md:px-6 rounded-full text-sm">Objednat</button>
                                         </div>
@@ -755,28 +757,37 @@
                             'Images/detskemenu.jpg', 'Images/pizza3.jpg'
                         ]
                     },
-                    frequentOrders: [{
-                        id: 1,
-                        name: 'Pizza se sýrem',
-                        description: 'Tomatový základ, sýr',
-                        price: '172'
-                    }, {
-                        id: 2,
-                        name: 'Pizza se šunkou',
-                        description: 'Tomatový základ, sýr',
-                        price: '176'
-                    }, {
-                        id: 3,
-                        name: 'Pizza Hawai',
-                        description: 'Smetanový základ, ananas, šunka',
-                        price: '185'
-                    }, {
-                        id: 4,
-                        name: 'Pizza Quattro Formaggi',
-                        description: 'Tomatový základ, 4 druhy sýra',
-                        price: '190'
-                    }],
+                    activeCategory: 'pizza', // default category
+                    topPizzas: [
+                        { id: 1, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr, šunka', price: '165' },
+                        { id: 7, name: 'Pizza se šunkou a salámem', description: 'Tomatový základ, sýr, šunka, salám', price: '175' },
+                        { id: 18, name: 'Pizza havajská s ananasem', description: 'Smetanový základ, sýr, šunka, ananas', price: '175' },
+                        { id: 11, name: 'Pizza sýrová', description: 'Tomatový základ, eidam', price: '160' },
+                        { id: 42, name: 'Pizza sýrová quatro', description: 'Smetanový základ, eidam, niva, hermelín, uzený sýr', price: '185' },
+                        { id: 10, name: 'Pizza se šunkou, salámem, žampióny a zeleninou', description: 'Tomatový základ, sýr, šunka, salám, žampióny, kukuřice, paprika', price: '195' },
+                        { id: 9, name: 'Pizza se šunkou, salámem a žampióny', description: 'Tomatový základ, sýr, šunka, salám, žampióny', price: '185' },
+                        { id: 17, name: 'Pizza mix', description: 'Tomatový základ, sýr, šunka, salám, slanina, klobása', price: '195' },
+                    ],
+                    topBurgers: [
+                        { id: 4, name: 'Burgr BACON', description: 'Hovězí maso, dvojitá slanina, čedar, BBQ omáčka, salát, rajče, cibulka', price: '189' },
+                        { id: 1, name: 'Burgr CHEESE', description: 'Hovězí maso, dvojitý čedar, salát, rajče, cibulka, dresink', price: '179' },
+                        { id: 6, name: 'Burgr JALAPEÑO', description: 'Hovězí maso, čedar, jalapeños, salát, rajče, pikantní dresink', price: '189' },
+                        { id: 2, name: 'Burgr BARBECUE', description: 'Hovězí maso, čedar, slanina, BBQ omáčka, smažená cibulka', price: '189' },
+                    ],
+                    topChicken: [
+                        { id: 1, name: 'Kuřecí stripsy (200g)', description: 'Smažené kuřecí kousky v cornflakes s omáčkou dle výběru', price: '159' },
+                        { id: 2, name: 'Pikantní křídla (8ks)', description: 'Grilovaná kuřecí křídla v pikantní marinádě', price: '179' },
+                        { id: 3, name: 'Kuřecí Tenders', description: 'Jemné kuřecí kousky v těstíčku, hranolky', price: '169' }
+                    ],
                     reviewImages: reviewImagePaths // Použití seřazeného pole
+                }
+            },
+            computed: {
+                activeList() {
+                    if (this.activeCategory === 'pizza') return this.topPizzas;
+                    if (this.activeCategory === 'burger') return this.topBurgers;
+                    if (this.activeCategory === 'chicken') return this.topChicken;
+                    return [];
                 }
             },
             methods: {
@@ -834,7 +845,4 @@
                 }
             }
         }).mount('#app');
-    </script>
-</body>
-
-</html>
+    </script></body></html>

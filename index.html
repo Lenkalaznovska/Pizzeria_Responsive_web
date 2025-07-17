@@ -420,7 +420,7 @@
                                         </div>
                                         <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end flex-shrink-0">
                                             <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">
-                                                <span v-if="activeCategory === 'pizza'">od </span>{{ item.price }} Kč
+                                                <span v-if="activeCategory !== 'pizza'">od </span>{{ item.price }} Kč
                                             </span>
                                             <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-3 md:px-6 rounded-full text-sm">Upravit</button>
                                             <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-3 md:px-6 rounded-full text-sm">Objednat</button>
@@ -761,19 +761,19 @@
                     topPizzas: [
                         { id: 1, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr, šunka', price: '165' },
                         { id: 7, name: 'Pizza se šunkou a salámem', description: 'Tomatový základ, sýr, šunka, salám', price: '175' },
-                        { id: 18, name: 'Pizza havajská s ananasem', description: 'Smetanový základ, sýr, šunka, ananas', price: '175' },
-                        { id: 11, name: 'Pizza sýrová', description: 'Tomatový základ, eidam', price: '160' },
+                        { id: 18, name: 'Pizza Havaj', description: 'Tomatový základ, sýr, šunka, ananas', price: '175' },
+                        { id: 11, name: 'Pizza Sýrová', description: 'Tomatový základ, eidam', price: '160' },
                     ],
                     topBurgers: [
-                        { id: 4, name: 'Burgr BACON', description: 'Hovězí maso, dvojitá slanina, čedar, BBQ omáčka, salát, rajče, cibulka', price: '189' },
-                        { id: 1, name: 'Burgr CHEESE', description: 'Hovězí maso, dvojitý čedar, salát, rajče, cibulka, dresink', price: '179' },
-                        { id: 6, name: 'Burgr JALAPEÑO', description: 'Hovězí maso, čedar, jalapeños, salát, rajče, pikantní dresink', price: '189' },
-                        { id: 2, name: 'Burgr BARBECUE', description: 'Hovězí maso, čedar, slanina, BBQ omáčka, smažená cibulka', price: '189' },
+                        { id: 4, name: 'BACON Burger', description: '100g hovězí maso, dvojitá slanina, čedar, BBQ omáčka, salát, rajče, cibulka', price: '189' },
+                        { id: 1, name: 'CHEESE Burger', description: '100g hovězí maso, dvojitý čedar, salát, rajče, cibulka, dresink', price: '179' },
+                        { id: 6, name: 'JALAPEÑO Burger', description: '100g hovězí maso, čedar, jalapeños, salát, rajče, pikantní dresink', price: '189' },
+                        { id: 2, name: 'BARBECUE Burger', description: '100g hovězí maso, čedar, slanina, BBQ omáčka, smažená cibulka', price: '189' },
                     ],
                     topChicken: [
-                        { id: 1, name: 'Kuřecí stripsy (200g)', description: 'Smažené kuřecí kousky v cornflakes s omáčkou dle výběru', price: '159' },
-                        { id: 2, name: 'Pikantní křídla (8ks)', description: 'Grilovaná kuřecí křídla v pikantní marinádě', price: '179' },
-                        { id: 3, name: 'Kuřecí Tenders', description: 'Jemné kuřecí kousky v těstíčku, hranolky', price: '169' }
+                        { id: 1, name: 'Marinovaná křídla', description: '6 ks / 12 ks / 18 ks', price: '159' },
+                        { id: 2, name: 'Obalovaná křídla', description: '6 ks / 12 ks / 18 ks', price: '159' },
+                        { id: 3, name: 'Kuřecí stripsy', description: '3 ks / 5 ks', price: '129' },
                     ],
                     reviewImages: reviewImagePaths // Použití seřazeného pole
                 }
@@ -841,4 +841,7 @@
                 }
             }
         }).mount('#app');
-    </script></body></html>
+    </script>
+</body>
+
+</html>

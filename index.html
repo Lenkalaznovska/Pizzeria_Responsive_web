@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="cs">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzerie San Marino v Kladně</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzerie San Marino – Pizza jinak již od roku 1994</title>
+
+    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
+    <meta name="keywords" content="pizzerie san marino kladno, pizza kladno rozvoz, burgr jako kráva kladno, wing it kladno, restaurace kladno" />
+    <meta name="author" content="Lenka Lážnovská" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pizza.pizzakladno.cz/" />
+    <link rel="alternate" href="https://pizza.pizzakladno.cz/" hreflang="cs" />
+
+    <meta property="og:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
+    <meta property="og:description" content="Originální pizzy, legendární burgry a další dobroty s doručením až k vám domů." />
+    <meta property="og:image" content="https://pizza.pizzakladno.cz/images/sanmarino.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://pizza.pizzakladno.cz/" />
+    <meta property="og:site_name" content="Pizzerie San Marino" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="cs_CZ" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
+    <meta name="twitter:description" content="Originální pizzy, legendární burgry a další dobroty s doručením až k vám domů." />
+    <meta name="twitter:image" content="https://pizza.pizzakladno.cz/images/sanmarino.webp" />
+
+    <link rel="icon" type="image/png" href="https://pizzakladno.cz/images/favicon.ico/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="https://pizzakladno.cz/images/favicon.ico/favicon.svg" />
+    <link rel="shortcut icon" href="https://pizzakladno.cz/images/favicon.ico/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://pizzakladno.cz/images/favicon.ico/apple-touch-icon.png" />
+    <link rel="manifest" href="https://pizzakladno.cz/images/favicon.ico/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Pizzerie San Marino Kladno" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -53,7 +80,6 @@
             background-image: url('Images/pozadi2.jpg');
             background-size: cover;
             background-position: center;
-            /* ZMĚNA ZDE: Přidán grayscale filtr pro odstranění zeleného nádechu */
             filter: grayscale(1);
         }
 
@@ -155,6 +181,64 @@
             height: 1.5rem;
         }
     </style>
+
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '934397255534553');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=934397255534553&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Pizzerie San Marino Kladno",
+      "image": "https://pizza.pizzakladno.cz/images/sanmarino.webp",
+      "@id": "https://pizza.pizzakladno.cz/",
+      "url": "https://pizza.pizzakladno.cz/",
+      "telephone": "+420604633373",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Obránců míru 2721",
+        "addressLocality": "Kladno",
+        "postalCode": "27201",
+        "addressCountry": "CZ"
+      },
+      "servesCuisine": "Pizza, Burger, Kuřecí speciality, Saláty, Zapečené těstoviny, Klasické těstoviny",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "21:15"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "11:00",
+          "closes": "21:15",
+          "description": "Pouze pro online a telefonické objednávky. Osobní vyzvednutí u výdejního místa vedle kuchyně nebo rozvoz až k vašim dveřím."
+        }
+      ],
+      "menu": "https://pizza.pizzakladno.cz/",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100095016576324",
+        "https://www.instagram.com/pizzakladno/",
+        "https://www.tiktok.com/@pizzakladno"
+      ]
+    }
+    </script>
 </head>
 
 <body class="bg-white">
